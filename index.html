@@ -1,985 +1,999 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ThinkHive Labs | Intelligent Digital Products & AI Solutions</title>
-  <meta name="description"
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ThinkHive Labs | Intelligent Digital Products & AI Solutions</title>
+    <meta name="description"
         content="ThinkHive Labs builds intelligent digital products, AI/ML solutions, and industrial edge AI platforms including Protecto, a ₹10/month mobile protection service." />
 
-  <!-- Google Font -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
-
-  <style>
-    :root {
-      --blue: #1a73e8;
-      --blue-dark: #0b2c53;
-      --green: #3cb879;
-      --bg: #f7f9fc;
-      --text: #1a1a1a;
-      --muted: #6b7280;
-      --card-bg: #ffffff;
-      --border: #e5e7eb;
-      --shadow-soft: 0 20px 40px rgba(15, 23, 42, 0.08);
-      --radius-lg: 18px;
-      --radius-md: 12px;
-      --radius-sm: 8px;
-      --max-width: 1120px;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, Arial, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    /* Layout helpers */
-    .container {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-
-    /* NAVBAR */
-    header.navbar {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      background: rgba(247, 249, 252, 0.98);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(148, 163, 184, 0.25);
-    }
-
-    .nav-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 14px 20px;
-    }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-weight: 700;
-      font-size: 20px;
-      color: var(--blue-dark);
-    }
-
-    .logo-badge {
-      width: 32px;
-      height: 32px;
-      border-radius: 999px;
-      background: linear-gradient(135deg, var(--blue), var(--green));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #ffffff;
-      font-size: 16px;
-      font-weight: 700;
-      box-shadow: 0 10px 20px rgba(26, 115, 232, 0.4);
-    }
-
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 22px;
-      font-size: 14px;
-      font-weight: 500;
-      color: var(--muted);
-    }
-
-    nav a:hover {
-      color: var(--blue);
-    }
-
-    .nav-cta {
-      padding: 8px 16px;
-      border-radius: 999px;
-      border: 1px solid rgba(26, 115, 232, 0.3);
-      font-size: 14px;
-      font-weight: 500;
-      color: var(--blue-dark);
-      background: #e0ebff;
-    }
-
-    .nav-cta:hover {
-      background: #d1e1ff;
-    }
-
-    .nav-toggle {
-      display: none;
-      border: none;
-      background: none;
-      font-size: 24px;
-    }
-
-    /* HERO */
-    .hero {
-      background: radial-gradient(circle at top left, #e0f0ff, transparent 60%),
-                  radial-gradient(circle at bottom right, #dafaf0, transparent 55%);
-      padding: 60px 0 70px;
-    }
-
-    .hero-inner {
-      display: grid;
-      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
-      gap: 40px;
-      align-items: center;
-    }
-
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 6px 12px;
-      border-radius: 999px;
-      background: rgba(37, 99, 235, 0.08);
-      color: var(--blue-dark);
-      font-size: 12px;
-      font-weight: 500;
-      margin-bottom: 16px;
-    }
-
-    .badge-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: var(--green);
-    }
-
-    .hero h1 {
-      font-size: clamp(28px, 4vw, 38px);
-      line-height: 1.15;
-      color: var(--blue-dark);
-      margin-bottom: 14px;
-    }
-
-    .hero p.hero-subtitle {
-      font-size: 16px;
-      color: var(--muted);
-      max-width: 540px;
-      margin-bottom: 22px;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 16px;
-      align-items: center;
-      margin-bottom: 26px;
-    }
-
-    .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      padding: 11px 22px;
-      border-radius: 999px;
-      border: none;
-      background: linear-gradient(135deg, var(--blue), #2563eb);
-      color: #ffffff;
-      font-size: 15px;
-      font-weight: 600;
-      cursor: pointer;
-      box-shadow: 0 16px 32px rgba(26, 115, 232, 0.35);
-    }
-
-    .btn-primary:hover {
-      filter: brightness(1.05);
-    }
-
-    .btn-ghost {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      padding: 10px 18px;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.5);
-      background: #ffffff;
-      color: var(--blue-dark);
-      font-size: 14px;
-      font-weight: 500;
-      cursor: pointer;
-    }
-
-    .hero-metrics {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 26px;
-      font-size: 13px;
-      color: var(--muted);
-    }
-
-    .hero-metric strong {
-      display: block;
-      font-size: 18px;
-      color: var(--blue-dark);
-    }
-
-    .hero-card {
-      background: #ffffff;
-      border-radius: var(--radius-lg);
-      box-shadow: var(--shadow-soft);
-      padding: 22px 22px 24px;
-      border: 1px solid rgba(148, 163, 184, 0.25);
-    }
-
-    .hero-card-title {
-      font-size: 16px;
-      font-weight: 600;
-      color: var(--blue-dark);
-      margin-bottom: 10px;
-    }
-
-    .hero-card-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: #e0ebff;
-      border-radius: 999px;
-      padding: 4px 10px;
-      font-size: 11px;
-      color: var(--blue-dark);
-      margin-bottom: 12px;
-    }
-
-    .price-tag {
-      font-size: 22px;
-      font-weight: 700;
-      margin: 10px 0 6px;
-      color: var(--blue-dark);
-    }
-
-    .price-tag span {
-      font-size: 13px;
-      font-weight: 400;
-      color: var(--muted);
-    }
-
-    .hero-card ul {
-      list-style: none;
-      font-size: 13px;
-      color: var(--muted);
-      margin: 12px 0 16px;
-    }
-
-    .hero-card li {
-      display: flex;
-      align-items: flex-start;
-      gap: 6px;
-      margin-bottom: 6px;
-    }
-
-    .check-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: var(--green);
-      margin-top: 6px;
-      flex-shrink: 0;
-    }
-
-    .hero-card-footer {
-      font-size: 11px;
-      color: var(--muted);
-    }
-
-    /* SECTION BASE */
-    section {
-      padding: 60px 0;
-    }
-
-    section:nth-of-type(even) {
-      background: #ffffff;
-    }
-
-    .section-heading {
-      text-align: center;
-      margin-bottom: 32px;
-    }
-
-    .section-heading h2 {
-      font-size: 24px;
-      color: var(--blue-dark);
-      margin-bottom: 8px;
-    }
-
-    .section-heading p {
-      font-size: 14px;
-      color: var(--muted);
-      max-width: 560px;
-      margin: 0 auto;
-    }
-
-    /* PRODUCTS */
-    .product-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 24px;
-    }
-
-    .card {
-      padding: 20px 20px 22px;
-      border-radius: var(--radius-md);
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      box-shadow: 0 10px 20px rgba(15, 23, 42, 0.03);
-      text-align: left;
-    }
-
-    .card-tag {
-      display: inline-flex;
-      padding: 3px 9px;
-      border-radius: 999px;
-      font-size: 11px;
-      font-weight: 500;
-      color: var(--blue-dark);
-      background: rgba(37, 99, 235, 0.08);
-      margin-bottom: 10px;
-    }
-
-    .card h3 {
-      font-size: 18px;
-      margin-bottom: 6px;
-      color: var(--blue-dark);
-    }
-
-    .card p {
-      font-size: 13px;
-      color: var(--muted);
-      margin-bottom: 12px;
-    }
-
-    .card ul {
-      list-style: none;
-      font-size: 13px;
-      color: var(--muted);
-    }
-
-    .card ul li {
-      margin-bottom: 4px;
-    }
-
-    .card a.card-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      font-size: 13px;
-      font-weight: 500;
-      color: var(--blue);
-      margin-top: 10px;
-    }
-
-    /* PROTECTO FEATURE SECTION */
-    .protecto-section {
-      display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
-      gap: 32px;
-      align-items: center;
-    }
-
-    .protecto-highlight {
-      border-radius: var(--radius-lg);
-      padding: 24px;
-      background: radial-gradient(circle at top left, #e0f2ff, transparent 55%),
-                  radial-gradient(circle at bottom right, #d4fbe8, transparent 60%);
-      border: 1px solid rgba(129, 140, 248, 0.25);
-      box-shadow: var(--shadow-soft);
-    }
-
-    .protecto-highlight h3 {
-      font-size: 22px;
-      color: var(--blue-dark);
-      margin-bottom: 8px;
-    }
-
-    .protecto-highlight p {
-      font-size: 14px;
-      color: var(--muted);
-      margin-bottom: 16px;
-    }
-
-    .pill-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 16px;
-    }
-
-    .pill {
-      font-size: 12px;
-      padding: 5px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.5);
-      background: rgba(255, 255, 255, 0.9);
-      color: var(--blue-dark);
-    }
-
-    .protecto-list {
-      list-style: none;
-      font-size: 13px;
-      color: var(--muted);
-      margin-bottom: 18px;
-    }
-
-    .protecto-list li {
-      margin-bottom: 5px;
-    }
-
-    .protecto-sidecard {
-      border-radius: var(--radius-md);
-      padding: 18px 18px 20px;
-      background: #ffffff;
-      border: 1px solid var(--border);
-      box-shadow: 0 14px 28px rgba(15, 23, 42, 0.05);
-      font-size: 13px;
-      color: var(--muted);
-    }
-
-    .protecto-sidecard h4 {
-      font-size: 15px;
-      margin-bottom: 8px;
-      color: var(--blue-dark);
-    }
-
-    .protecto-price {
-      font-size: 20px;
-      font-weight: 700;
-      color: var(--blue-dark);
-      margin-top: 6px;
-    }
-
-    /* SERVICES */
-    .service-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 22px;
-    }
-
-    .service-card h3 {
-      font-size: 17px;
-      margin-bottom: 6px;
-      color: var(--blue-dark);
-    }
-
-    .service-card p {
-      font-size: 13px;
-      color: var(--muted);
-      margin-bottom: 10px;
-    }
-
-    .service-card ul {
-      list-style: none;
-      font-size: 13px;
-      color: var(--muted);
-    }
-
-    /* PROCESS */
-    .process-steps {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-      gap: 18px;
-      margin-top: 10px;
-    }
-
-    .step {
-      padding: 16px 16px 18px;
-      border-radius: var(--radius-md);
-      background: #ffffff;
-      border: 1px dashed rgba(148, 163, 184, 0.7);
-      font-size: 13px;
-      color: var(--muted);
-    }
-
-    .step-title {
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--blue-dark);
-      margin-bottom: 6px;
-    }
-
-    /* ABOUT & CONTACT */
-    .two-col {
-      display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
-      gap: 28px;
-      align-items: flex-start;
-    }
-
-    .contact-card {
-      border-radius: var(--radius-md);
-      background: #ffffff;
-      padding: 20px 20px 22px;
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow-soft);
-      font-size: 14px;
-      color: var(--muted);
-    }
-
-    .contact-card h3 {
-      font-size: 18px;
-      color: var(--blue-dark);
-      margin-bottom: 8px;
-    }
-
-    .contact-card a {
-      color: var(--blue);
-      font-weight: 500;
-    }
-
-    .contact-meta {
-      margin-top: 10px;
-      font-size: 13px;
-    }
-
-    /* FOOTER */
-    footer {
-      padding: 18px 0 24px;
-      background: #0f172a;
-      color: #cbd5f5;
-      font-size: 12px;
-    }
-
-    .footer-inner {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-    }
-
-    .footer-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-    }
-
-    .footer-links a {
-      color: #9ca3af;
-    }
-
-    .footer-links a:hover {
-      color: #e5e7eb;
-    }
-
-    /* RESPONSIVE */
-    @media (max-width: 880px) {
-      .hero-inner,
-      .protecto-section,
-      .two-col {
-        grid-template-columns: minmax(0, 1fr);
-      }
-
-      .hero {
-        padding-top: 40px;
-      }
-
-      nav ul {
-        display: none;
-        flex-direction: column;
-        background: rgba(247, 249, 252, 0.98);
-        position: absolute;
-        right: 16px;
-        top: 58px;
-        padding: 12px 18px;
-        border-radius: 12px;
-        box-shadow: 0 14px 28px rgba(15, 23, 42, 0.15);
-      }
-
-      nav ul.open {
-        display: flex;
-      }
-
-      .nav-toggle {
-        display: block;
-      }
-
-      .nav-cta {
-        display: none;
-      }
-    }
-  </style>
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --blue: #1a73e8;
+            --blue-dark: #0b2c53;
+            --green: #3cb879;
+            --bg: #f7f9fc;
+            --text: #1a1a1a;
+            --muted: #6b7280;
+            --card-bg: #ffffff;
+            --border: #e5e7eb;
+            --shadow-soft: 0 20px 40px rgba(15, 23, 42, 0.08);
+            --radius-lg: 18px;
+            --radius-md: 12px;
+            --radius-sm: 8px;
+            --max-width: 1120px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* Layout helpers */
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* NAVBAR */
+        header.navbar {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: rgba(247, 249, 252, 0.98);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(148, 163, 184, 0.25);
+        }
+
+        .nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+            font-size: 20px;
+            color: var(--blue-dark);
+        }
+
+        .logo-img {
+            height: 34px;
+            width: auto;
+            display: block;
+        }
+
+
+        .logo-badge {
+            width: 32px;
+            height: 32px;
+            border-radius: 999px;
+            background: linear-gradient(135deg, var(--blue), var(--green));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            font-size: 16px;
+            font-weight: 700;
+            box-shadow: 0 10px 20px rgba(26, 115, 232, 0.4);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 22px;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--muted);
+        }
+
+        nav a:hover {
+            color: var(--blue);
+        }
+
+        .nav-cta {
+            padding: 8px 16px;
+            border-radius: 999px;
+            border: 1px solid rgba(26, 115, 232, 0.3);
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--blue-dark);
+            background: #e0ebff;
+        }
+
+        .nav-cta:hover {
+            background: #d1e1ff;
+        }
+
+        .nav-toggle {
+            display: none;
+            border: none;
+            background: none;
+            font-size: 24px;
+        }
+
+        /* HERO */
+        .hero {
+            background: radial-gradient(circle at top left, #e0f0ff, transparent 60%),
+                radial-gradient(circle at bottom right, #dafaf0, transparent 55%);
+            padding: 60px 0 70px;
+        }
+
+        .hero-inner {
+            display: grid;
+            grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+            gap: 40px;
+            align-items: center;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 12px;
+            border-radius: 999px;
+            background: rgba(37, 99, 235, 0.08);
+            color: var(--blue-dark);
+            font-size: 12px;
+            font-weight: 500;
+            margin-bottom: 16px;
+        }
+
+        .badge-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--green);
+        }
+
+        .hero h1 {
+            font-size: clamp(28px, 4vw, 38px);
+            line-height: 1.15;
+            color: var(--blue-dark);
+            margin-bottom: 14px;
+        }
+
+        .hero p.hero-subtitle {
+            font-size: 16px;
+            color: var(--muted);
+            max-width: 540px;
+            margin-bottom: 22px;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            align-items: center;
+            margin-bottom: 26px;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            padding: 11px 22px;
+            border-radius: 999px;
+            border: none;
+            background: linear-gradient(135deg, var(--blue), #2563eb);
+            color: #ffffff;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 16px 32px rgba(26, 115, 232, 0.35);
+        }
+
+        .btn-primary:hover {
+            filter: brightness(1.05);
+        }
+
+        .btn-ghost {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            padding: 10px 18px;
+            border-radius: 999px;
+            border: 1px solid rgba(148, 163, 184, 0.5);
+            background: #ffffff;
+            color: var(--blue-dark);
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+        }
+
+        .hero-metrics {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 26px;
+            font-size: 13px;
+            color: var(--muted);
+        }
+
+        .hero-metric strong {
+            display: block;
+            font-size: 18px;
+            color: var(--blue-dark);
+        }
+
+        .hero-card {
+            background: #ffffff;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-soft);
+            padding: 22px 22px 24px;
+            border: 1px solid rgba(148, 163, 184, 0.25);
+        }
+
+        .hero-card-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--blue-dark);
+            margin-bottom: 10px;
+        }
+
+        .hero-card-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: #e0ebff;
+            border-radius: 999px;
+            padding: 4px 10px;
+            font-size: 11px;
+            color: var(--blue-dark);
+            margin-bottom: 12px;
+        }
+
+        .price-tag {
+            font-size: 22px;
+            font-weight: 700;
+            margin: 10px 0 6px;
+            color: var(--blue-dark);
+        }
+
+        .price-tag span {
+            font-size: 13px;
+            font-weight: 400;
+            color: var(--muted);
+        }
+
+        .hero-card ul {
+            list-style: none;
+            font-size: 13px;
+            color: var(--muted);
+            margin: 12px 0 16px;
+        }
+
+        .hero-card li {
+            display: flex;
+            align-items: flex-start;
+            gap: 6px;
+            margin-bottom: 6px;
+        }
+
+        .check-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--green);
+            margin-top: 6px;
+            flex-shrink: 0;
+        }
+
+        .hero-card-footer {
+            font-size: 11px;
+            color: var(--muted);
+        }
+
+        /* SECTION BASE */
+        section {
+            padding: 60px 0;
+        }
+
+        section:nth-of-type(even) {
+            background: #ffffff;
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .section-heading h2 {
+            font-size: 24px;
+            color: var(--blue-dark);
+            margin-bottom: 8px;
+        }
+
+        .section-heading p {
+            font-size: 14px;
+            color: var(--muted);
+            max-width: 560px;
+            margin: 0 auto;
+        }
+
+        /* PRODUCTS */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+        }
+
+        .card {
+            padding: 20px 20px 22px;
+            border-radius: var(--radius-md);
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            box-shadow: 0 10px 20px rgba(15, 23, 42, 0.03);
+            text-align: left;
+        }
+
+        .card-tag {
+            display: inline-flex;
+            padding: 3px 9px;
+            border-radius: 999px;
+            font-size: 11px;
+            font-weight: 500;
+            color: var(--blue-dark);
+            background: rgba(37, 99, 235, 0.08);
+            margin-bottom: 10px;
+        }
+
+        .card h3 {
+            font-size: 18px;
+            margin-bottom: 6px;
+            color: var(--blue-dark);
+        }
+
+        .card p {
+            font-size: 13px;
+            color: var(--muted);
+            margin-bottom: 12px;
+        }
+
+        .card ul {
+            list-style: none;
+            font-size: 13px;
+            color: var(--muted);
+        }
+
+        .card ul li {
+            margin-bottom: 4px;
+        }
+
+        .card a.card-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--blue);
+            margin-top: 10px;
+        }
+
+        /* PROTECTO FEATURE SECTION */
+        .protecto-section {
+            display: grid;
+            grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+            gap: 32px;
+            align-items: center;
+        }
+
+        .protecto-highlight {
+            border-radius: var(--radius-lg);
+            padding: 24px;
+            background: radial-gradient(circle at top left, #e0f2ff, transparent 55%),
+                radial-gradient(circle at bottom right, #d4fbe8, transparent 60%);
+            border: 1px solid rgba(129, 140, 248, 0.25);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .protecto-highlight h3 {
+            font-size: 22px;
+            color: var(--blue-dark);
+            margin-bottom: 8px;
+        }
+
+        .protecto-highlight p {
+            font-size: 14px;
+            color: var(--muted);
+            margin-bottom: 16px;
+        }
+
+        .pill-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+
+        .pill {
+            font-size: 12px;
+            padding: 5px 10px;
+            border-radius: 999px;
+            border: 1px solid rgba(148, 163, 184, 0.5);
+            background: rgba(255, 255, 255, 0.9);
+            color: var(--blue-dark);
+        }
+
+        .protecto-list {
+            list-style: none;
+            font-size: 13px;
+            color: var(--muted);
+            margin-bottom: 18px;
+        }
+
+        .protecto-list li {
+            margin-bottom: 5px;
+        }
+
+        .protecto-sidecard {
+            border-radius: var(--radius-md);
+            padding: 18px 18px 20px;
+            background: #ffffff;
+            border: 1px solid var(--border);
+            box-shadow: 0 14px 28px rgba(15, 23, 42, 0.05);
+            font-size: 13px;
+            color: var(--muted);
+        }
+
+        .protecto-sidecard h4 {
+            font-size: 15px;
+            margin-bottom: 8px;
+            color: var(--blue-dark);
+        }
+
+        .protecto-price {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--blue-dark);
+            margin-top: 6px;
+        }
+
+        /* SERVICES */
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 22px;
+        }
+
+        .service-card h3 {
+            font-size: 17px;
+            margin-bottom: 6px;
+            color: var(--blue-dark);
+        }
+
+        .service-card p {
+            font-size: 13px;
+            color: var(--muted);
+            margin-bottom: 10px;
+        }
+
+        .service-card ul {
+            list-style: none;
+            font-size: 13px;
+            color: var(--muted);
+        }
+
+        /* PROCESS */
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+            gap: 18px;
+            margin-top: 10px;
+        }
+
+        .step {
+            padding: 16px 16px 18px;
+            border-radius: var(--radius-md);
+            background: #ffffff;
+            border: 1px dashed rgba(148, 163, 184, 0.7);
+            font-size: 13px;
+            color: var(--muted);
+        }
+
+        .step-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--blue-dark);
+            margin-bottom: 6px;
+        }
+
+        /* ABOUT & CONTACT */
+        .two-col {
+            display: grid;
+            grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+            gap: 28px;
+            align-items: flex-start;
+        }
+
+        .contact-card {
+            border-radius: var(--radius-md);
+            background: #ffffff;
+            padding: 20px 20px 22px;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-soft);
+            font-size: 14px;
+            color: var(--muted);
+        }
+
+        .contact-card h3 {
+            font-size: 18px;
+            color: var(--blue-dark);
+            margin-bottom: 8px;
+        }
+
+        .contact-card a {
+            color: var(--blue);
+            font-weight: 500;
+        }
+
+        .contact-meta {
+            margin-top: 10px;
+            font-size: 13px;
+        }
+
+        /* FOOTER */
+        footer {
+            padding: 18px 0 24px;
+            background: #0f172a;
+            color: #cbd5f5;
+            font-size: 12px;
+        }
+
+        .footer-inner {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+
+        .footer-links a {
+            color: #9ca3af;
+        }
+
+        .footer-links a:hover {
+            color: #e5e7eb;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 880px) {
+
+            .hero-inner,
+            .protecto-section,
+            .two-col {
+                grid-template-columns: minmax(0, 1fr);
+            }
+
+            .hero {
+                padding-top: 40px;
+            }
+
+            nav ul {
+                display: none;
+                flex-direction: column;
+                background: rgba(247, 249, 252, 0.98);
+                position: absolute;
+                right: 16px;
+                top: 58px;
+                padding: 12px 18px;
+                border-radius: 12px;
+                box-shadow: 0 14px 28px rgba(15, 23, 42, 0.15);
+            }
+
+            nav ul.open {
+                display: flex;
+            }
+
+            .nav-toggle {
+                display: block;
+            }
+
+            .nav-cta {
+                display: none;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-<header class="navbar">
-  <div class="container nav-inner">
-    <a href="#top" class="logo">
-      <div class="logo-badge">T</div>
-      <span>ThinkHive Labs</span>
-    </a>
-
-    <nav>
-      <button class="nav-toggle" aria-label="Toggle navigation" onclick="toggleNav()">☰</button>
-      <ul id="nav-menu">
-        <li><a href="#products">Products</a></li>
-        <li><a href="#protecto">Protecto</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#process">Process</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-
-    <a href="#contact" class="nav-cta">Discuss a project</a>
-  </div>
-</header>
-
-<main id="top">
-
-  <!-- HERO -->
-  <section class="hero">
-    <div class="container hero-inner">
-      <div>
-        <div class="badge">
-          <span class="badge-dot"></span>
-          Intelligent digital products & industrial AI
-        </div>
-        <h1>We build practical, production-ready software and AI for real factories and real users.</h1>
-        <p class="hero-subtitle">
-          ThinkHive Labs partners with enterprises to design, build, and deploy
-          reliable products – from edge AI and predictive maintenance to secure consumer apps like Protecto.
-        </p>
-
-        <div class="hero-actions">
-          <a href="#protecto" class="btn-primary">View Protecto &nbsp;→</a>
-          <a href="#contact" class="btn-ghost">Talk about your use case</a>
-        </div>
-
-        <div class="hero-metrics">
-          <div class="hero-metric">
-            <strong>20+ years</strong>
-            product engineering experience
-          </div>
-          <div class="hero-metric">
-            <strong>AI · Cloud · Edge</strong>
-            end-to-end delivery
-          </div>
-          <div class="hero-metric">
-            <strong>Built in India</strong>
-            for global deployments
-          </div>
-        </div>
-      </div>
-
-      <aside class="hero-card">
-        <div class="hero-card-title">Protecto · Mobile Protection</div>
-        <div class="hero-card-pill">
-          ₹10 / month · For every Indian smartphone user
-        </div>
-        <div class="price-tag">
-          ₹10<span>/month · no hidden fees</span>
-        </div>
-        <ul>
-          <li><span class="check-dot"></span> Blocks spam and fraud calls with an India-aware engine.</li>
-          <li><span class="check-dot"></span> Alerts you if your mobile, email or PAN appear in data leaks.</li>
-          <li><span class="check-dot"></span> Helps detect SIM swap attempts and risky apps.</li>
-        </ul>
-        <div class="hero-card-footer">
-          Built and operated by ThinkHive Labs as a privacy-first, lightweight protection layer for your phone.
-        </div>
-      </aside>
-    </div>
-  </section>
-
-  <!-- PRODUCTS -->
-  <section id="products">
-    <div class="container">
-      <div class="section-heading">
-        <h2>Products from ThinkHive Labs</h2>
-        <p>We design products that combine solid engineering, AI/ML, and practical deployment experience.</p>
-      </div>
-
-      <div class="product-grid">
-        <div class="card">
-          <div class="card-tag">Consumer · Security</div>
-          <h3>Protecto</h3>
-          <p>
-            Mobile-first protection for Indian smartphone users — spam & fraud call protection,
-            breach alerts, and SIM safety for just ₹10/month.
-          </p>
-          <ul>
-            <li>• Spam & fraud call detection tuned for India</li>
-            <li>• Data breach monitoring (phone, email, PAN hash)</li>
-            <li>• Lightweight, battery-friendly client</li>
-          </ul>
-          <a href="#protecto" class="card-link">Learn more about Protecto →</a>
-        </div>
-
-        <div class="card">
-          <div class="card-tag">Industrial · Edge AI</div>
-          <h3>Industrial Intelligence Stack</h3>
-          <p>
-            A modular edge-to-cloud stack for predictive maintenance and anomaly detection on
-            machines, PLC data, and sensor streams.
-          </p>
-          <ul>
-            <li>• Sensor & PLC connectivity</li>
-            <li>• Time-series analytics & anomaly detection</li>
-            <li>• Dashboards for engineers & operators</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <div class="card-tag">Custom · AI & Tools</div>
-          <h3>AI Assistant & Workflow Tools</h3>
-          <p>
-            Tailored assistants, dashboards and automation tools that plug into your existing
-            processes, CRMs and engineering workflows.
-          </p>
-          <ul>
-            <li>• RAG assistants on private data</li>
-            <li>• Engineering & support copilots</li>
-            <li>• Workflow automation & integration</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROTECTO FOCUS -->
-  <section id="protecto">
-    <div class="container">
-      <div class="section-heading">
-        <h2>Protecto · Your phone. Fully protected.</h2>
-        <p>
-          A lightweight protection layer for every Indian mobile user — designed to be affordable,
-          private and easy to use.
-        </p>
-      </div>
-
-      <div class="protecto-section">
-        <div class="protecto-highlight">
-          <h3>What Protecto does for you</h3>
-          <p>
-            Protecto quietly runs in the background and watches for phone-level risk signals:
-            spam patterns, fraud numbers, data breach activity and SIM changes.
-          </p>
-
-          <div class="pill-row">
-            <span class="pill">Spam & fraud call guard</span>
-            <span class="pill">Data breach alerts</span>
-            <span class="pill">SIM swap early warning</span>
-            <span class="pill">Risky app hints</span>
-          </div>
-
-          <ul class="protecto-list">
-            <li>• India-specific spam & fraud number reputation with community feedback.</li>
-            <li>• Alerts when your identifiers appear in breach dumps or leak datasets.</li>
-            <li>• Early warning for SIM change & port-out patterns (where supported).</li>
-            <li>• Guidance on apps that over-request permissions or behave suspiciously.</li>
-          </ul>
-
-          <a href="#contact" class="btn-primary">Partner / Early access →</a>
-        </div>
-
-        <aside class="protecto-sidecard">
-          <h4>Built for scale & affordability</h4>
-          <p>
-            Protecto is designed as a national-scale service with a minimal cost per user.
-            The focus is on reliability, privacy and clear, human-readable alerts.
-          </p>
-
-          <div class="protecto-price">
-            ₹10<span style="font-size:13px;font-weight:400;"> / month per device</span>
-          </div>
-          <div style="margin-top:8px;">
-            • Simple subscription model<br>
-            • No ads, no data resale<br>
-            • Works on modest hardware
-          </div>
-
-          <div style="margin-top:12px;font-size:12px;">
-            We are open to pilots with telecom operators, OEMs and fintechs for bundled offerings.
-          </div>
-        </aside>
-      </div>
-    </div>
-  </section>
-
-  <!-- SERVICES -->
-  <section id="services">
-    <div class="container">
-      <div class="section-heading">
-        <h2>Engineering & AI Services</h2>
-        <p>
-          Beyond products, ThinkHive Labs acts as an engineering partner to design, build and ship
-          robust solutions that fit your environment.
-        </p>
-      </div>
-
-      <div class="service-grid">
-        <div class="card service-card">
-          <h3>AI & ML Engineering</h3>
-          <p>From model selection to deployment pipelines, we build AI that survives production.</p>
-          <ul>
-            <li>• Time-series & anomaly detection</li>
-            <li>• Computer vision & edge inference</li>
-            <li>• RAG & LLM-based assistants</li>
-          </ul>
-        </div>
-
-        <div class="card service-card">
-          <h3>Product & App Development</h3>
-          <p>End-to-end product engineering with clean architecture and maintainable code.</p>
-          <ul>
-            <li>• Web & mobile apps</li>
-            <li>• Python, .NET, Qt/QML, React</li>
-            <li>• Testing, automation & observability</li>
-          </ul>
-        </div>
-
-        <div class="card service-card">
-          <h3>Cloud & DevOps</h3>
-          <p>We design CI/CD, infrastructure-as-code and monitoring tailored to your stack.</p>
-          <ul>
-            <li>• Azure, AWS, GCP</li>
-            <li>• Containers & orchestration</li>
-            <li>• Secure deployment practices</li>
-          </ul>
-        </div>
-
-        <div class="card service-card">
-          <h3>Industrial & Edge Systems</h3>
-          <p>Experience working with PLCs, sensor stacks and high-availability shop-floor systems.</p>
-          <ul>
-            <li>• PLC / OPC UA integration</li>
-            <li>• Edge gateways & data pipelines</li>
-            <li>• Operator dashboards & HMIs</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROCESS -->
-  <section id="process">
-    <div class="container">
-      <div class="section-heading">
-        <h2>How we work with you</h2>
-        <p>A simple, transparent process that fits both product builds and targeted consulting work.</p>
-      </div>
-
-      <div class="process-steps">
-        <div class="step">
-          <div class="step-title">1 · Discovery & scoping</div>
-          We map your goals, constraints, existing systems and success metrics into a clear, written brief.
-        </div>
-        <div class="step">
-          <div class="step-title">2 · Architecture & design</div>
-          High-level design, data flow and component choices that balance risk, time-to-market and cost.
-        </div>
-        <div class="step">
-          <div class="step-title">3 · Build & validate</div>
-          Iterative implementation with demos, test harnesses and clear visibility into progress.
-        </div>
-        <div class="step">
-          <div class="step-title">4 · Deploy & evolve</div>
-          Production rollout, monitoring and continuous refinement based on real-world feedback.
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ABOUT + CONTACT -->
-  <section id="about">
-    <div class="container">
-      <div class="section-heading">
-        <h2>About ThinkHive Labs</h2>
-        <p>ThinkHive Labs is led by experienced engineering leadership with hands-on product and AI background.</p>
-      </div>
-
-      <div class="two-col">
-        <div>
-          <p style="font-size:14px;color:var(--muted);margin-bottom:12px;">
-            We operate at the intersection of product thinking, solid engineering practice, and
-            practical AI/ML. The focus is always on shipping systems that work reliably in the field,
-            not just prototypes.
-          </p>
-          <p style="font-size:14px;color:var(--muted);margin-bottom:12px;">
-            Our experience spans consumer apps, cloud platforms, industrial equipment control,
-            predictive maintenance, and data-driven decision support for engineering and operations teams.
-          </p>
-          <p style="font-size:14px;color:var(--muted);">
-            If you are exploring new products, looking to modernize legacy systems, or planning to
-            introduce AI to your workflows, we can help structure the approach and execute with you.
-          </p>
-        </div>
-
-        <div id="contact">
-          <div class="contact-card">
-            <h3>Start a conversation</h3>
-            <p>
-              Share a brief note about what you’re building or the problem you’re trying to solve.
-              We’ll get back with thoughts, options and a practical next step.
-            </p>
-
-            <div class="contact-meta">
-              Email:<br>
-              <a href="mailto:contact@thinkhivelabs.com">contact@thinkhivelabs.com</a>
-              <br><br>
-              For Protecto partnerships & pilots:<br>
-              <a href="mailto:protecto@thinkhivelabs.com">protecto@thinkhivelabs.com</a>
-            </div>
-
-            <div class="contact-meta" style="margin-top:12px;">
-              Location: Bengaluru, India<br>
-              Engagements: remote + on-site by agreement
-            </div>
-
-            <a href="mailto:contact@thinkhivelabs.com?subject=Enquiry%20-%20ThinkHive%20Labs"
-               class="btn-primary" style="margin-top:16px;display:inline-flex;">
-              Email ThinkHive Labs →
+    <header class="navbar">
+        <div class="container nav-inner">
+            <a href="#top" class="logo">
+                <img src="thinkhive-logo.png" alt="ThinkHive Labs logo" class="logo-img">
             </a>
-          </div>
+            <nav>
+                <button class="nav-toggle" aria-label="Toggle navigation" onclick="toggleNav()">☰</button>
+                <ul id="nav-menu">
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#protecto">Protecto</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#process">Process</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+
+            <a href="#contact" class="nav-cta">Discuss a project</a>
         </div>
-      </div>
-    </div>
-  </section>
+    </header>
 
-</main>
+    <main id="top">
 
-<footer>
-  <div class="container footer-inner">
-    <div>© <span id="year"></span> ThinkHive Labs. All rights reserved.</div>
-    <div class="footer-links">
-      <a href="#products">Products</a>
-      <a href="#services">Services</a>
-      <a href="#protecto">Protecto</a>
-      <a href="#contact">Contact</a>
-    </div>
-  </div>
-</footer>
+        <!-- HERO -->
+        <section class="hero">
+            <div class="container hero-inner">
+                <div>
+                    <div class="badge">
+                        <span class="badge-dot"></span>
+                        Intelligent digital products & industrial AI
+                    </div>
+                    <h1>We build practical, production-ready software and AI for real factories and real users.</h1>
+                    <p class="hero-subtitle">
+                        ThinkHive Labs partners with enterprises to design, build, and deploy
+                        reliable products – from edge AI and predictive maintenance to secure consumer apps like
+                        Protecto.
+                    </p>
 
-<script>
-  // mobile nav toggle
-  function toggleNav() {
-    const menu = document.getElementById("nav-menu");
-    menu.classList.toggle("open");
-  }
+                    <div class="hero-actions">
+                        <a href="#protecto" class="btn-primary">View Protecto &nbsp;→</a>
+                        <a href="#contact" class="btn-ghost">Talk about your use case</a>
+                    </div>
 
-  // dynamic year
-  document.getElementById("year").textContent = new Date().getFullYear();
-</script>
+                    <div class="hero-metrics">
+                        <div class="hero-metric">
+                            <strong>20+ years</strong>
+                            product engineering experience
+                        </div>
+                        <div class="hero-metric">
+                            <strong>AI · Cloud · Edge</strong>
+                            end-to-end delivery
+                        </div>
+                        <div class="hero-metric">
+                            <strong>Built in India</strong>
+                            for global deployments
+                        </div>
+                    </div>
+                </div>
+
+                <aside class="hero-card">
+                    <div class="hero-card-title">Protecto · Mobile Protection</div>
+                    <div class="hero-card-pill">
+                        ₹10 / month · For every Indian smartphone user
+                    </div>
+                    <div class="price-tag">
+                        ₹10<span>/month · no hidden fees</span>
+                    </div>
+                    <ul>
+                        <li><span class="check-dot"></span> Blocks spam and fraud calls with an India-aware engine.</li>
+                        <li><span class="check-dot"></span> Alerts you if your mobile, email or PAN appear in data
+                            leaks.</li>
+                        <li><span class="check-dot"></span> Helps detect SIM swap attempts and risky apps.</li>
+                    </ul>
+                    <div class="hero-card-footer">
+                        Built and operated by ThinkHive Labs as a privacy-first, lightweight protection layer for your
+                        phone.
+                    </div>
+                </aside>
+            </div>
+        </section>
+
+        <!-- PRODUCTS -->
+        <section id="products">
+            <div class="container">
+                <div class="section-heading">
+                    <h2>Products from ThinkHive Labs</h2>
+                    <p>We design products that combine solid engineering, AI/ML, and practical deployment experience.
+                    </p>
+                </div>
+
+                <div class="product-grid">
+                    <div class="card">
+                        <div class="card-tag">Consumer · Security</div>
+                        <h3>Protecto</h3>
+                        <p>
+                            Mobile-first protection for Indian smartphone users — spam & fraud call protection,
+                            breach alerts, and SIM safety for just ₹10/month.
+                        </p>
+                        <ul>
+                            <li>• Spam & fraud call detection tuned for India</li>
+                            <li>• Data breach monitoring (phone, email, PAN hash)</li>
+                            <li>• Lightweight, battery-friendly client</li>
+                        </ul>
+                        <a href="#protecto" class="card-link">Learn more about Protecto →</a>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-tag">Industrial · Edge AI</div>
+                        <h3>Industrial Intelligence Stack</h3>
+                        <p>
+                            A modular edge-to-cloud stack for predictive maintenance and anomaly detection on
+                            machines, PLC data, and sensor streams.
+                        </p>
+                        <ul>
+                            <li>• Sensor & PLC connectivity</li>
+                            <li>• Time-series analytics & anomaly detection</li>
+                            <li>• Dashboards for engineers & operators</li>
+                        </ul>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-tag">Custom · AI & Tools</div>
+                        <h3>AI Assistant & Workflow Tools</h3>
+                        <p>
+                            Tailored assistants, dashboards and automation tools that plug into your existing
+                            processes, CRMs and engineering workflows.
+                        </p>
+                        <ul>
+                            <li>• RAG assistants on private data</li>
+                            <li>• Engineering & support copilots</li>
+                            <li>• Workflow automation & integration</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROTECTO FOCUS -->
+        <section id="protecto">
+            <div class="container">
+                <div class="section-heading">
+                    <h2>Protecto · Your phone. Fully protected.</h2>
+                    <p>
+                        A lightweight protection layer for every Indian mobile user — designed to be affordable,
+                        private and easy to use.
+                    </p>
+                </div>
+
+                <div class="protecto-section">
+                    <div class="protecto-highlight">
+                        <h3>What Protecto does for you</h3>
+                        <p>
+                            Protecto quietly runs in the background and watches for phone-level risk signals:
+                            spam patterns, fraud numbers, data breach activity and SIM changes.
+                        </p>
+
+                        <div class="pill-row">
+                            <span class="pill">Spam & fraud call guard</span>
+                            <span class="pill">Data breach alerts</span>
+                            <span class="pill">SIM swap early warning</span>
+                            <span class="pill">Risky app hints</span>
+                        </div>
+
+                        <ul class="protecto-list">
+                            <li>• India-specific spam & fraud number reputation with community feedback.</li>
+                            <li>• Alerts when your identifiers appear in breach dumps or leak datasets.</li>
+                            <li>• Early warning for SIM change & port-out patterns (where supported).</li>
+                            <li>• Guidance on apps that over-request permissions or behave suspiciously.</li>
+                        </ul>
+
+                        <a href="#contact" class="btn-primary">Partner / Early access →</a>
+                    </div>
+
+                    <aside class="protecto-sidecard">
+                        <h4>Built for scale & affordability</h4>
+                        <p>
+                            Protecto is designed as a national-scale service with a minimal cost per user.
+                            The focus is on reliability, privacy and clear, human-readable alerts.
+                        </p>
+
+                        <div class="protecto-price">
+                            ₹10<span style="font-size:13px;font-weight:400;"> / month per device</span>
+                        </div>
+                        <div style="margin-top:8px;">
+                            • Simple subscription model<br>
+                            • No ads, no data resale<br>
+                            • Works on modest hardware
+                        </div>
+
+                        <div style="margin-top:12px;font-size:12px;">
+                            We are open to pilots with telecom operators, OEMs and fintechs for bundled offerings.
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+
+        <!-- SERVICES -->
+        <section id="services">
+            <div class="container">
+                <div class="section-heading">
+                    <h2>Engineering & AI Services</h2>
+                    <p>
+                        Beyond products, ThinkHive Labs acts as an engineering partner to design, build and ship
+                        robust solutions that fit your environment.
+                    </p>
+                </div>
+
+                <div class="service-grid">
+                    <div class="card service-card">
+                        <h3>AI & ML Engineering</h3>
+                        <p>From model selection to deployment pipelines, we build AI that survives production.</p>
+                        <ul>
+                            <li>• Time-series & anomaly detection</li>
+                            <li>• Computer vision & edge inference</li>
+                            <li>• RAG & LLM-based assistants</li>
+                        </ul>
+                    </div>
+
+                    <div class="card service-card">
+                        <h3>Product & App Development</h3>
+                        <p>End-to-end product engineering with clean architecture and maintainable code.</p>
+                        <ul>
+                            <li>• Web & mobile apps</li>
+                            <li>• Python, .NET, Qt/QML, React</li>
+                            <li>• Testing, automation & observability</li>
+                        </ul>
+                    </div>
+
+                    <div class="card service-card">
+                        <h3>Cloud & DevOps</h3>
+                        <p>We design CI/CD, infrastructure-as-code and monitoring tailored to your stack.</p>
+                        <ul>
+                            <li>• Azure, AWS, GCP</li>
+                            <li>• Containers & orchestration</li>
+                            <li>• Secure deployment practices</li>
+                        </ul>
+                    </div>
+
+                    <div class="card service-card">
+                        <h3>Industrial & Edge Systems</h3>
+                        <p>Experience working with PLCs, sensor stacks and high-availability shop-floor systems.</p>
+                        <ul>
+                            <li>• PLC / OPC UA integration</li>
+                            <li>• Edge gateways & data pipelines</li>
+                            <li>• Operator dashboards & HMIs</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROCESS -->
+        <section id="process">
+            <div class="container">
+                <div class="section-heading">
+                    <h2>How we work with you</h2>
+                    <p>A simple, transparent process that fits both product builds and targeted consulting work.</p>
+                </div>
+
+                <div class="process-steps">
+                    <div class="step">
+                        <div class="step-title">1 · Discovery & scoping</div>
+                        We map your goals, constraints, existing systems and success metrics into a clear, written
+                        brief.
+                    </div>
+                    <div class="step">
+                        <div class="step-title">2 · Architecture & design</div>
+                        High-level design, data flow and component choices that balance risk, time-to-market and cost.
+                    </div>
+                    <div class="step">
+                        <div class="step-title">3 · Build & validate</div>
+                        Iterative implementation with demos, test harnesses and clear visibility into progress.
+                    </div>
+                    <div class="step">
+                        <div class="step-title">4 · Deploy & evolve</div>
+                        Production rollout, monitoring and continuous refinement based on real-world feedback.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT + CONTACT -->
+        <section id="about">
+            <div class="container">
+                <div class="section-heading">
+                    <h2>About ThinkHive Labs</h2>
+                    <p>ThinkHive Labs is led by experienced engineering leadership with hands-on product and AI
+                        background.</p>
+                </div>
+
+                <div class="two-col">
+                    <div>
+                        <p style="font-size:14px;color:var(--muted);margin-bottom:12px;">
+                            We operate at the intersection of product thinking, solid engineering practice, and
+                            practical AI/ML. The focus is always on shipping systems that work reliably in the field,
+                            not just prototypes.
+                        </p>
+                        <p style="font-size:14px;color:var(--muted);margin-bottom:12px;">
+                            Our experience spans consumer apps, cloud platforms, industrial equipment control,
+                            predictive maintenance, and data-driven decision support for engineering and operations
+                            teams.
+                        </p>
+                        <p style="font-size:14px;color:var(--muted);">
+                            If you are exploring new products, looking to modernize legacy systems, or planning to
+                            introduce AI to your workflows, we can help structure the approach and execute with you.
+                        </p>
+                    </div>
+
+                    <div id="contact">
+                        <div class="contact-card">
+                            <h3>Start a conversation</h3>
+                            <p>
+                                Share a brief note about what you’re building or the problem you’re trying to solve.
+                                We’ll get back with thoughts, options and a practical next step.
+                            </p>
+
+                            <div class="contact-meta">
+                                Email:<br>
+                                <a href="mailto:contact@thinkhivelabs.com">contact@thinkhivelabs.com</a>
+                                <br><br>
+                                For Protecto partnerships & pilots:<br>
+                                <a href="mailto:protecto@thinkhivelabs.com">protecto@thinkhivelabs.com</a>
+                            </div>
+
+                            <div class="contact-meta" style="margin-top:12px;">
+                                Location: Bengaluru, India<br>
+                                Engagements: remote + on-site by agreement
+                            </div>
+
+                            <a href="mailto:contact@thinkhivelabs.com?subject=Enquiry%20-%20ThinkHive%20Labs"
+                                class="btn-primary" style="margin-top:16px;display:inline-flex;">
+                                Email ThinkHive Labs →
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container footer-inner">
+            <div>© <span id="year"></span> ThinkHive Labs. All rights reserved.</div>
+            <div class="footer-links">
+                <a href="#products">Products</a>
+                <a href="#services">Services</a>
+                <a href="#protecto">Protecto</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // mobile nav toggle
+        function toggleNav() {
+            const menu = document.getElementById("nav-menu");
+            menu.classList.toggle("open");
+        }
+
+        // dynamic year
+        document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
 
 </body>
+
 </html>
