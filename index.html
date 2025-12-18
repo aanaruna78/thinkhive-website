@@ -83,9 +83,17 @@
 
         .logo-img {
             height: 52px;
-            /* perfect navbar height */
+            /* Ideal navbar height */
             width: auto;
-            display: block;
+            margin-top: -4px;
+            /* Optically aligns the logo */
+        }
+
+        @media (min-width: 1280px) {
+            .logo-img {
+                height: 64px;
+                /* Desktop */
+            }
         }
 
         .nav-inner {
@@ -632,8 +640,8 @@
 
     <header class="navbar">
         <div class="container nav-inner">
-            <a href="#top" class="logo">
-                <img src="thinkhive-logo.png" alt="ThinkHive Labs logo" class="logo-img">
+            <a href="/" class="logo-link">
+                <img src="thinkhive-logo.svg" class="logo-img" alt="ThinkHive Labs Logo">
             </a>
             <nav>
                 <button class="nav-toggle" aria-label="Toggle navigation" onclick="toggleNav()">☰</button>
