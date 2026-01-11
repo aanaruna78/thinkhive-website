@@ -89,6 +89,8 @@ section {
     padding: 5rem 0;
     position: relative;
     overflow: hidden;
+    scroll-margin-top: calc(var(--header-height) + 1rem);
+    /* Prevents sticky header overlap */
 }
 
 section:nth-of-type(even) {
