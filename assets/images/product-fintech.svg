@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" role="img" aria-label="SignalForge product illustration">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1a73e8" stop-opacity="0.10"/>
+      <stop offset="1" stop-color="#3cb879" stop-opacity="0.10"/>
+    </linearGradient>
+    <linearGradient id="line" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#1a73e8" stop-opacity="0.75"/>
+      <stop offset="1" stop-color="#3cb879" stop-opacity="0.75"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#0b2c53" flood-opacity="0.10"/>
+    </filter>
+  </defs>
+
+  <rect x="40" y="40" width="720" height="440" rx="26" fill="url(#bg)" stroke="#e5e7eb"/>
+
+  <!-- mini dashboard cards -->
+  <g filter="url(#shadow)">
+    <rect x="90" y="105" width="280" height="140" rx="18" fill="#ffffff" stroke="#e5e7eb"/>
+    <rect x="405" y="105" width="305" height="140" rx="18" fill="#ffffff" stroke="#e5e7eb"/>
+    <rect x="90" y="270" width="620" height="155" rx="18" fill="#ffffff" stroke="#e5e7eb"/>
+  </g>
+
+  <!-- top-left: scoring bars -->
+  <g opacity="0.95">
+    <rect x="118" y="136" width="160" height="10" rx="6" fill="#e5e7eb"/>
+    <rect x="118" y="136" width="108" height="10" rx="6" fill="#1a73e8" fill-opacity="0.65"/>
+
+    <rect x="118" y="160" width="200" height="10" rx="6" fill="#e5e7eb"/>
+    <rect x="118" y="160" width="152" height="10" rx="6" fill="#3cb879" fill-opacity="0.65"/>
+
+    <rect x="118" y="184" width="180" height="10" rx="6" fill="#e5e7eb"/>
+    <rect x="118" y="184" width="96" height="10" rx="6" fill="#0b2c53" fill-opacity="0.25"/>
+
+    <circle cx="322" cy="186" r="18" fill="#1a73e8" fill-opacity="0.10"/>
+    <path d="M322 171a15 15 0 1 0 0.001 0Z" fill="none" stroke="#1a73e8" stroke-opacity="0.45" stroke-width="4"/>
+  </g>
+
+  <!-- top-right: trend line -->
+  <g>
+    <path d="M430 212 C 490 160, 545 235, 610 190 S 690 170, 690 170" fill="none" stroke="url(#line)" stroke-width="5" stroke-linecap="round"/>
+    <circle cx="430" cy="212" r="7" fill="#3cb879"/>
+    <circle cx="610" cy="190" r="7" fill="#1a73e8"/>
+    <circle cx="690" cy="170" r="7" fill="#3cb879"/>
+  </g>
+
+  <!-- bottom: signal pipeline -->
+  <g opacity="0.95">
+    <rect x="120" y="305" width="150" height="34" rx="12" fill="#e0ebff"/>
+    <rect x="290" y="305" width="150" height="34" rx="12" fill="#e0ebff"/>
+    <rect x="460" y="305" width="150" height="34" rx="12" fill="#dafaf0"/>
+
+    <path d="M270 322H290" stroke="#94a3b8" stroke-width="4" stroke-linecap="round"/>
+    <path d="M440 322H460" stroke="#94a3b8" stroke-width="4" stroke-linecap="round"/>
+
+    <rect x="120" y="360" width="560" height="10" rx="8" fill="#e5e7eb"/>
+    <rect x="120" y="360" width="360" height="10" rx="8" fill="#1a73e8" fill-opacity="0.35"/>
+  </g>
+</svg>

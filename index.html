@@ -27,6 +27,7 @@
             --card-bg: #ffffff;
             --border: #e5e7eb;
             --shadow-soft: 0 20px 40px rgba(15, 23, 42, 0.08);
+            --shadow-med: 0 18px 38px rgba(15, 23, 42, 0.12);
             --radius-lg: 18px;
             --radius-md: 12px;
             --radius-sm: 8px;
@@ -44,6 +45,31 @@
             background: var(--bg);
             color: var(--text);
             line-height: 1.6;
+        }
+
+        /* Motion primitives */
+        .reveal {
+            opacity: 0;
+            transform: translateY(14px);
+            transition: opacity 600ms ease, transform 700ms cubic-bezier(.2, .8, .2, 1);
+            will-change: opacity, transform;
+        }
+
+        .reveal.in-view {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .reveal {
+                opacity: 1;
+                transform: none;
+                transition: none;
+            }
+
+            .floaty {
+                animation: none !important;
+            }
         }
 
         a {
@@ -224,6 +250,14 @@
             filter: brightness(1.05);
         }
 
+        .btn-primary {
+            transition: transform 180ms ease, filter 180ms ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-1px);
+        }
+
         .btn-ghost {
             display: inline-flex;
             align-items: center;
@@ -259,6 +293,66 @@
             box-shadow: var(--shadow-soft);
             padding: 22px 22px 24px;
             border: 1px solid rgba(148, 163, 184, 0.25);
+            transition: transform 220ms ease, box-shadow 220ms ease;
+        }
+
+        .hero-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-med);
+        }
+
+        .hero-right {
+            position: relative;
+        }
+
+        .hero-visual {
+            position: absolute;
+            inset: -18px -18px auto -18px;
+            height: 220px;
+            border-radius: 22px;
+            border: 1px solid rgba(148, 163, 184, 0.18);
+            background:
+                radial-gradient(circle at 25% 30%, rgba(26, 115, 232, 0.14), transparent 55%),
+                radial-gradient(circle at 78% 70%, rgba(60, 184, 121, 0.14), transparent 60%),
+                linear-gradient(180deg, rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.55));
+            box-shadow: 0 22px 50px rgba(15, 23, 42, 0.10);
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .hero-visual svg {
+            width: 100%;
+            height: 100%;
+            display: block;
+            opacity: 0.92;
+        }
+
+        @keyframes dash {
+            to {
+                stroke-dashoffset: -120;
+            }
+        }
+
+        .hero-visual svg g path {
+            stroke-dasharray: 10 12;
+            stroke-dashoffset: 0;
+            animation: dash 10s linear infinite;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .hero-visual svg g path {
+                animation: none;
+            }
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+            100% { transform: translateY(0); }
+        }
+
+        .floaty {
+            animation: float 7s ease-in-out infinite;
         }
 
         .hero-card-title {
@@ -362,6 +456,13 @@
             border: 1px solid var(--border);
             box-shadow: 0 10px 20px rgba(15, 23, 42, 0.03);
             text-align: left;
+            transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 18px 38px rgba(15, 23, 42, 0.09);
+            border-color: rgba(26, 115, 232, 0.18);
         }
 
         .card-tag {
@@ -407,6 +508,86 @@
             margin-top: 10px;
         }
 
+        .card-illustration {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 14px;
+            border: 1px solid rgba(148, 163, 184, 0.25);
+            margin-bottom: 12px;
+            background: #ffffff;
+        }
+
+        .section-visual {
+            width: 100%;
+            max-width: 780px;
+            margin: 14px auto 0;
+            border-radius: 18px;
+            border: 1px solid rgba(148, 163, 184, 0.25);
+            background: #ffffff;
+            box-shadow: 0 18px 38px rgba(15, 23, 42, 0.06);
+            display: block;
+        }
+
+        .icon-strip {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 10px 0 18px;
+        }
+
+        .icon-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 10px;
+            border-radius: 999px;
+            border: 1px solid rgba(148, 163, 184, 0.40);
+            background: rgba(255, 255, 255, 0.9);
+            color: var(--blue-dark);
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .icon-badge svg {
+            width: 16px;
+            height: 16px;
+            flex: 0 0 16px;
+            color: var(--blue);
+        }
+
+        .icon-badge.alt svg {
+            color: var(--green);
+        }
+
+        .card-title-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .title-icon {
+            width: 34px;
+            height: 34px;
+            border-radius: 12px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(148, 163, 184, 0.35);
+            background: rgba(255, 255, 255, 0.9);
+            color: var(--blue);
+            flex: 0 0 34px;
+        }
+
+        .title-icon.alt {
+            color: var(--green);
+        }
+
+        .title-icon svg {
+            width: 18px;
+            height: 18px;
+        }
+
         /* SIGNALFORGE FEATURE SECTION */
         .signalforge-section {
             display: grid;
@@ -422,6 +603,12 @@
                 radial-gradient(circle at bottom right, #d4fbe8, transparent 60%);
             border: 1px solid rgba(129, 140, 248, 0.25);
             box-shadow: var(--shadow-soft);
+            transition: transform 220ms ease, box-shadow 220ms ease;
+        }
+
+        .signalforge-highlight:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-med);
         }
 
         .signalforge-highlight h3 {
@@ -471,6 +658,12 @@
             box-shadow: 0 14px 28px rgba(15, 23, 42, 0.05);
             font-size: 13px;
             color: var(--muted);
+            transition: transform 220ms ease, box-shadow 220ms ease;
+        }
+
+        .signalforge-sidecard:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 18px 38px rgba(15, 23, 42, 0.10);
         }
 
         .signalforge-sidecard h4 {
@@ -493,11 +686,77 @@
             margin-top: 24px;
         }
 
+        .insight-head {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .insight-icon {
+            width: 34px;
+            height: 34px;
+            border-radius: 12px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(148, 163, 184, 0.35);
+            background: rgba(255, 255, 255, 0.9);
+            color: var(--blue);
+            flex: 0 0 34px;
+        }
+
+        .insight-icon.alt {
+            color: var(--green);
+        }
+
+        .insight-icon svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        .insight-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .insight-list li {
+            margin-bottom: 6px;
+            line-height: 1.45;
+        }
+
+        .roi-box {
+            padding: 12px;
+            border-radius: 14px;
+            border: 1px solid rgba(148, 163, 184, 0.35);
+            background: rgba(247, 249, 252, 0.75);
+        }
+
+        .roi-eq {
+            font-size: 13px;
+            color: var(--blue-dark);
+            font-weight: 700;
+            letter-spacing: -0.1px;
+        }
+
+        .roi-sub {
+            font-size: 12px;
+            color: var(--muted);
+            margin-top: 6px;
+        }
+
         .enterprise-block {
             padding: 16px;
             border-radius: var(--radius-md);
             border: 1px solid var(--border);
             background: #ffffff;
+            transition: transform 220ms ease, box-shadow 220ms ease;
+        }
+
+        .enterprise-block:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 14px 30px rgba(15, 23, 42, 0.08);
         }
 
         .enterprise-block h4 {
@@ -556,6 +815,12 @@
             border: 1px dashed rgba(148, 163, 184, 0.7);
             font-size: 13px;
             color: var(--muted);
+            transition: transform 220ms ease, box-shadow 220ms ease;
+        }
+
+        .step:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 14px 28px rgba(15, 23, 42, 0.06);
         }
 
         .step-title {
@@ -581,6 +846,12 @@
             box-shadow: var(--shadow-soft);
             font-size: 14px;
             color: var(--muted);
+            transition: transform 220ms ease, box-shadow 220ms ease;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-med);
         }
 
         .contact-card h3 {
@@ -646,6 +917,13 @@
                 padding-top: 40px;
             }
 
+            .hero-visual {
+                position: relative;
+                inset: auto;
+                height: 180px;
+                margin-bottom: 14px;
+            }
+
             nav ul {
                 display: none;
                 flex-direction: column;
@@ -702,22 +980,76 @@
         <!-- HERO -->
         <section class="hero">
             <div class="container hero-inner">
-                <div>
+                <div class="reveal" data-reveal>
                     <div class="badge">
                         <span class="badge-dot"></span>
                         Production-ready software & AI — delivered fast
                     </div>
                     <h1>We build practical, production-ready software and AI for real factories and real users.</h1>
                     <p class="hero-subtitle">
-                        ThinkHive Labs partners with enterprises to design, build, and deploy end-to-end solutions —
-                        cloud or on-prem — including smart AI-driven analytics, support, and hosting.
-                        <strong>SignalForge was built to working conditions in 3 weeks.</strong>
-                        Need a full deliverable fast? We routinely ship production-ready systems in <strong>3–4 weeks</strong> for pilot-to-live outcomes.
+                        End-to-end delivery (cloud or on‑prem) with AI-driven analytics, hosting, and support.
+                        <strong>SignalForge reached working conditions in 3 weeks.</strong>
+                        Full deliverables in <strong>3–4 weeks</strong> for scoped, pilot‑to‑live outcomes.
                     </p>
 
                     <div class="hero-actions">
                         <a href="https://sf.thinkhivelabs.com/" target="_blank" rel="noopener noreferrer" class="btn-primary">Login & Start Using SignalForge &nbsp;→</a>
                         <a href="#contact" class="btn-ghost">Talk about your use case</a>
+                    </div>
+
+                    <div class="icon-strip reveal" data-reveal>
+                        <span class="icon-badge">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M7 18a4 4 0 1 1 .8-7.92A5 5 0 0 1 20 12.5" />
+                                <path d="M16 16h-1a3 3 0 0 1 0-6" />
+                            </svg>
+                            Cloud
+                        </span>
+                        <span class="icon-badge alt">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M4 6h16v12H4z" />
+                                <path d="M9 18v2h6v-2" />
+                                <path d="M8 10h8" />
+                            </svg>
+                            On‑prem
+                        </span>
+                        <span class="icon-badge">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M12 2v4" />
+                                <path d="M12 18v4" />
+                                <path d="M4 12H2" />
+                                <path d="M22 12h-2" />
+                                <path d="M19.1 4.9l-2.1 2.1" />
+                                <path d="M7 17l-2.1 2.1" />
+                                <path d="M4.9 4.9L7 7" />
+                                <path d="M17 17l2.1 2.1" />
+                                <circle cx="12" cy="12" r="4" />
+                            </svg>
+                            AI Analytics
+                        </span>
+                        <span class="icon-badge alt">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M7 7h10v10H7z" />
+                                <path d="M4 12h3" />
+                                <path d="M17 12h3" />
+                                <path d="M12 4v3" />
+                                <path d="M12 17v3" />
+                            </svg>
+                            Microservices
+                        </span>
+                        <span class="icon-badge">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                                <path d="M9 12l2 2 4-5" />
+                            </svg>
+                            Secure delivery
+                        </span>
+                        <span class="icon-badge alt">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M21 15a4 4 0 0 1-4 4H8l-5 3 2-5a4 4 0 0 1-1-2.6V7a4 4 0 0 1 4-4h9a4 4 0 0 1 4 4z" />
+                            </svg>
+                            Support & Hosting
+                        </span>
                     </div>
 
                     <div class="hero-metrics">
@@ -736,49 +1068,97 @@
                     </div>
                 </div>
 
-                <aside class="hero-card">
-                    <div class="hero-card-title">AIStockAnalyst (SignalForge)</div>
-                    <div class="hero-card-pill">
-                        Enterprise stock intelligence platform
+                <div class="hero-right">
+                    <div class="hero-visual floaty" aria-hidden="true">
+                        <svg viewBox="0 0 1200 520" xmlns="http://www.w3.org/2000/svg" role="presentation">
+                            <defs>
+                                <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+                                    <stop offset="0" stop-color="#1a73e8" stop-opacity="0.18" />
+                                    <stop offset="1" stop-color="#3cb879" stop-opacity="0.16" />
+                                </linearGradient>
+                                <linearGradient id="g2" x1="0" y1="1" x2="1" y2="0">
+                                    <stop offset="0" stop-color="#0b2c53" stop-opacity="0.22" />
+                                    <stop offset="1" stop-color="#1a73e8" stop-opacity="0.10" />
+                                </linearGradient>
+                                <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+                                    <feGaussianBlur stdDeviation="10" />
+                                </filter>
+                            </defs>
+
+                            <circle cx="240" cy="150" r="110" fill="url(#g1)" filter="url(#soft)" />
+                            <circle cx="965" cy="370" r="140" fill="url(#g1)" filter="url(#soft)" />
+                            <circle cx="720" cy="150" r="95" fill="url(#g2)" filter="url(#soft)" />
+
+                            <g fill="none" stroke="#0b2c53" stroke-opacity="0.22" stroke-width="2">
+                                <path d="M135 350 C 260 245, 400 265, 520 210" />
+                                <path d="M520 210 C 640 150, 720 160, 850 180" />
+                                <path d="M850 180 C 980 205, 1045 250, 1110 310" />
+                            </g>
+
+                            <g>
+                                <circle cx="135" cy="350" r="10" fill="#3cb879" fill-opacity="0.9" />
+                                <circle cx="520" cy="210" r="10" fill="#1a73e8" fill-opacity="0.9" />
+                                <circle cx="850" cy="180" r="10" fill="#1a73e8" fill-opacity="0.65" />
+                                <circle cx="1110" cy="310" r="10" fill="#3cb879" fill-opacity="0.75" />
+                            </g>
+
+                            <g opacity="0.55" stroke="#1a73e8" stroke-opacity="0.22">
+                                <line x1="40" y1="70" x2="300" y2="70" />
+                                <line x1="40" y1="110" x2="360" y2="110" />
+                                <line x1="40" y1="150" x2="280" y2="150" />
+
+                                <line x1="760" y1="320" x2="1140" y2="320" />
+                                <line x1="780" y1="360" x2="1140" y2="360" />
+                                <line x1="820" y1="400" x2="1140" y2="400" />
+                            </g>
+                        </svg>
                     </div>
-                    <div class="price-tag">
-                        Currently Free<span> to use · early access open</span>
-                    </div>
-                    <ul>
-                        <li><span class="check-dot"></span> Unified S.T.A.F.A scoring: Sentiment, Technical, AI,
-                            Fundamental, Analyst.</li>
-                        <li><span class="check-dot"></span> Cuts decision latency with real-time + scheduled analysis.</li>
-                        <li><span class="check-dot"></span> Built for consistent, explainable recommendation workflows.</li>
-                    </ul>
-                    <div class="hero-card-footer">
-                        Built to working conditions in <strong>3 weeks</strong>.
-                        <br>
-                        Microservices architecture for ingestion, prediction, recommendation, alerting and API delivery.
-                        <br>
-                        <a href="https://sf.thinkhivelabs.com/" target="_blank" rel="noopener noreferrer" style="color:var(--blue);font-weight:600;">Use the app now → sf.thinkhivelabs.com</a>
-                    </div>
-                </aside>
+
+                    <aside class="hero-card reveal" data-reveal>
+                        <div class="hero-card-title">AIStockAnalyst (SignalForge)</div>
+                        <div class="hero-card-pill">
+                            Enterprise stock intelligence platform
+                        </div>
+                        <div class="price-tag">
+                            Currently Free<span> to use · early access open</span>
+                        </div>
+                        <ul>
+                            <li><span class="check-dot"></span> Unified S.T.A.F.A scoring: Sentiment, Technical, AI,
+                                Fundamental, Analyst.</li>
+                            <li><span class="check-dot"></span> Cuts decision latency with real-time + scheduled analysis.</li>
+                            <li><span class="check-dot"></span> Built for consistent, explainable recommendation workflows.</li>
+                        </ul>
+                        <div class="hero-card-footer">
+                            Built to working conditions in <strong>3 weeks</strong>.
+                            <br>
+                            Microservices architecture for ingestion, prediction, recommendation, alerting and API delivery.
+                            <br>
+                            <a href="https://sf.thinkhivelabs.com/" target="_blank" rel="noopener noreferrer" style="color:var(--blue);font-weight:600;">Use the app now → sf.thinkhivelabs.com</a>
+                        </div>
+                    </aside>
+                </div>
             </div>
         </section>
 
         <!-- PRODUCTS -->
         <section id="products">
             <div class="container">
-                <div class="section-heading">
+                <div class="section-heading reveal" data-reveal>
                     <h2>Products from ThinkHive Labs</h2>
                     <p>
-                        We design products that combine solid engineering, AI/ML, and practical deployment experience —
-                        and we ship them fast. If you need a full deliverable, our sprint model targets <strong>3–4 weeks</strong> from scope to working release.
+                        Product-grade builds with AI/ML and real deployment experience.
+                        If you need a full deliverable, our sprint model targets <strong>3–4 weeks</strong> from scope to working release.
                     </p>
+                    <img class="section-visual reveal" data-reveal src="assets/images/delivery-sprint.svg" alt="3–4 week delivery sprint timeline">
                 </div>
 
                 <div class="product-grid">
-                    <div class="card">
+                    <div class="card reveal" data-reveal>
+                        <img class="card-illustration" src="assets/images/product-fintech.svg" alt="SignalForge stock intelligence illustration">
                         <div class="card-tag">FinTech · AI Intelligence</div>
                         <h3>AIStockAnalyst (SignalForge)</h3>
                         <p>
-                            Enterprise-grade stock intelligence platform to improve recommendation quality,
-                            operational throughput, and confidence in advisory decisions.
+                            Enterprise-grade stock intelligence to improve decision speed, quality, and consistency.
                         </p>
                         <ul>
                             <li>• Unified conviction score via S.T.A.F.A framework</li>
@@ -788,12 +1168,12 @@
                         <a href="#signalforge" class="card-link">Read business value brief →</a>
                     </div>
 
-                    <div class="card">
+                    <div class="card reveal" data-reveal>
+                        <img class="card-illustration" src="assets/images/product-industrial.svg" alt="Industrial edge intelligence illustration">
                         <div class="card-tag">Industrial · Edge AI</div>
                         <h3>Industrial Intelligence Stack</h3>
                         <p>
-                            A modular edge-to-cloud stack for predictive maintenance and anomaly detection on
-                            machines, PLC data, and sensor streams.
+                            Edge-to-cloud intelligence for predictive maintenance and anomaly detection.
                         </p>
                         <ul>
                             <li>• Sensor & PLC connectivity</li>
@@ -802,12 +1182,12 @@
                         </ul>
                     </div>
 
-                    <div class="card">
+                    <div class="card reveal" data-reveal>
+                        <img class="card-illustration" src="assets/images/product-workflow.svg" alt="AI workflow tools illustration">
                         <div class="card-tag">Custom · AI & Tools</div>
                         <h3>AI Assistant & Workflow Tools</h3>
                         <p>
-                            Tailored assistants, dashboards and automation tools that plug into your existing
-                            processes, CRMs and engineering workflows.
+                            Assistants, dashboards, and automations that plug into your existing tools and processes.
                         </p>
                         <ul>
                             <li>• RAG assistants on private data</li>
@@ -822,22 +1202,19 @@
         <!-- SIGNALFORGE FOCUS -->
         <section id="signalforge">
             <div class="container">
-                <div class="section-heading">
-                    <h2>AIStockAnalyst (SignalForge) · Business Value & Benefits White Paper</h2>
+                <div class="section-heading reveal" data-reveal>
+                    <h2>AIStockAnalyst (SignalForge) · Business Value</h2>
                     <p>
-                        Date: 14 February 2026 · Audience: Founders, Product Leaders, Investment Advisory Teams,
-                        FinOps & Operations.
+                        Enterprise stock intelligence for faster, more consistent decision workflows.
                     </p>
                 </div>
 
                 <div class="signalforge-section">
-                    <div class="signalforge-highlight">
+                    <div class="signalforge-highlight reveal" data-reveal>
                         <h3>Executive summary</h3>
                         <p>
-                            AIStockAnalyst (SignalForge) is an AI-powered stock intelligence platform that reduces
-                            decision latency, improves recommendation quality, and scales research operations.
-                            It combines technical indicators, sentiment signals, fundamental analysis, and machine
-                            learning into a repeatable conviction model.
+                            SignalForge reduces decision latency, improves recommendation quality, and scales research throughput
+                            with a repeatable, explainable conviction model.
                         </p>
 
                         <p style="font-size:14px;color:var(--blue-dark);font-weight:600;margin-bottom:14px;">
@@ -855,14 +1232,13 @@
                             <li>• Faster time-to-decision with automated gathering, scoring, and prioritization.</li>
                             <li>• Higher decision consistency through transparent multi-factor interpretation.</li>
                             <li>• Improved research throughput without proportional headcount growth.</li>
-                            <li>• Lower operational risk with decoupled services and reliable deployment workflows.</li>
                             <li>• Better stakeholder trust through explainable, defensible recommendations.</li>
                         </ul>
 
                         <a href="https://sf.thinkhivelabs.com/" target="_blank" rel="noopener noreferrer" class="btn-primary">Login & start using SignalForge →</a>
                     </div>
 
-                    <aside class="signalforge-sidecard">
+                    <aside class="signalforge-sidecard reveal" data-reveal>
                         <h4>Commercial status & adoption path</h4>
                         <p>
                             SignalForge is currently free to use for early adopters while teams validate KPI impact.
@@ -878,10 +1254,13 @@
                         <div class="signalforge-price">
                             3 phases<span style="font-size:13px;font-weight:400;"> · Pilot → Controlled scale → Full ops</span>
                         </div>
+
+                        <img class="section-visual" style="max-width:100%;margin:12px 0 8px;" src="assets/images/signalforge-integration.svg" alt="SignalForge broker integration for real trades">
+
                         <div style="margin-top:8px;">
-                            • Phase 1 (2–4 weeks): Symbol subset and baseline KPIs<br>
-                            • Phase 2 (4–8 weeks): Expanded scans and alert-driven workflows<br>
-                            • Phase 3: Governance, release cycles, and cost optimization
+                            • Phase 1 (3 weeks): Product ready — symbol subset, baseline KPIs, live deployment<br>
+                            • Phase 2 (Week 4): Real trades — integrate broker platform, order/position workflows, alerts<br>
+                            • Phase 3 (ongoing): Governance, release cycles, and cost optimization
                         </div>
 
                         <div style="margin-top:12px;font-size:12px;">
@@ -893,42 +1272,76 @@
                 </div>
 
                 <div class="enterprise-grid">
-                    <div class="enterprise-block">
-                        <h4>Business problem addressed</h4>
-                        <ul>
-                            <li>• Fragmented technical, sentiment, and fundamental data workflows.</li>
-                            <li>• Slow analysis cycles and delayed actionability.</li>
-                            <li>• Inconsistent human-only interpretation across analysts.</li>
-                            <li>• Limited coverage scale with manual research processes.</li>
+                    <img class="section-visual reveal" data-reveal src="assets/images/enterprise-kpi.svg" alt="KPI impact snapshot">
+
+                    <div class="enterprise-block reveal" data-reveal>
+                        <div class="insight-head">
+                            <span class="insight-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                                    <path d="M9 11h6" />
+                                    <path d="M9 15h4" />
+                                </svg>
+                            </span>
+                            <h4>Business problem addressed</h4>
+                        </div>
+                        <ul class="insight-list">
+                            <li>• Fragmented data + signals across tools</li>
+                            <li>• Slow cycles → missed timing</li>
+                            <li>• Inconsistent interpretation across analysts</li>
+                            <li>• Manual research limits coverage</li>
                         </ul>
                     </div>
-                    <div class="enterprise-block">
-                        <h4>Quantifiable benefit areas</h4>
-                        <ul>
-                            <li>• Cycle efficiency: recommendation lead time and scan completion rate.</li>
-                            <li>• Signal quality: directional accuracy, false-positive/negative trend.</li>
-                            <li>• Productivity: research hours saved and cost per analyzed symbol.</li>
-                            <li>• Reliability: uptime, freshness SLA adherence, rollback frequency.</li>
+
+                    <div class="enterprise-block reveal" data-reveal>
+                        <div class="insight-head">
+                            <span class="insight-icon alt" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M3 3v18h18" />
+                                    <path d="M7 14l3-3 3 3 5-6" />
+                                </svg>
+                            </span>
+                            <h4>Quantifiable benefit areas</h4>
+                        </div>
+                        <ul class="insight-list">
+                            <li>• Cycle efficiency: lead time, scan completion</li>
+                            <li>• Signal quality: directional accuracy, false positives</li>
+                            <li>• Productivity: hours saved, cost per symbol</li>
+                            <li>• Reliability: uptime, freshness SLA, rollbacks</li>
                         </ul>
                     </div>
-                    <div class="enterprise-block">
-                        <h4>Illustrative ROI model</h4>
-                        <p>
-                            Annual Net Value = (Productivity Savings + Decision Uplift Value + Risk Avoidance) −
-                            Platform Cost.
-                        </p>
-                        <p style="margin-top:8px;">
-                            Even modest gains in throughput and recommendation quality can compound significantly over
-                            one year of active market coverage.
-                        </p>
+
+                    <div class="enterprise-block reveal" data-reveal>
+                        <div class="insight-head">
+                            <span class="insight-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M12 1v22" />
+                                    <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7H14a3.5 3.5 0 0 1 0 7H6" />
+                                </svg>
+                            </span>
+                            <h4>Illustrative ROI model</h4>
+                        </div>
+                        <div class="roi-box">
+                            <div class="roi-eq">Annual Net Value = (Productivity Savings + Decision Uplift + Risk Avoidance) − Platform Cost</div>
+                            <div class="roi-sub">Even small gains compound across weekly market cycles and wider symbol coverage.</div>
+                        </div>
                     </div>
-                    <div class="enterprise-block">
-                        <h4>Risks and mitigations</h4>
-                        <ul>
-                            <li>• Data dependency: multi-source redundancy and freshness checks.</li>
-                            <li>• Model drift: monitor quality and recalibrate thresholds periodically.</li>
-                            <li>• Adoption friction: onboarding with transparent score interpretation.</li>
-                            <li>• Operational complexity: observability and deployment runbooks.</li>
+
+                    <div class="enterprise-block reveal" data-reveal>
+                        <div class="insight-head">
+                            <span class="insight-icon alt" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                                    <path d="M9 12l2 2 4-5" />
+                                </svg>
+                            </span>
+                            <h4>Risks and mitigations</h4>
+                        </div>
+                        <ul class="insight-list">
+                            <li>• Data dependency: redundancy + freshness checks</li>
+                            <li>• Model drift: monitoring + threshold reviews</li>
+                            <li>• Adoption friction: transparent scoring + onboarding</li>
+                            <li>• Ops complexity: observability + runbooks</li>
                         </ul>
                     </div>
                 </div>
@@ -938,17 +1351,29 @@
         <!-- SERVICES -->
         <section id="services">
             <div class="container">
-                <div class="section-heading">
+                <div class="section-heading reveal" data-reveal>
                     <h2>Engineering & AI Services</h2>
                     <p>
                         Beyond products, ThinkHive Labs acts as an engineering partner to design, build and ship
                         robust solutions that fit your environment — with a delivery model optimized for speed and production reliability.
                     </p>
+                    <img class="section-visual reveal" data-reveal src="assets/images/services-stack.svg" alt="Engineering and AI services stack">
                 </div>
 
                 <div class="service-grid">
-                    <div class="card service-card">
-                        <h3>AI & ML Engineering</h3>
+                    <div class="card service-card reveal" data-reveal>
+                        <div class="card-title-row">
+                            <span class="title-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M7 7h10v10H7z" />
+                                    <path d="M4 12h3" />
+                                    <path d="M17 12h3" />
+                                    <path d="M12 4v3" />
+                                    <path d="M12 17v3" />
+                                </svg>
+                            </span>
+                            <h3>AI & ML Engineering</h3>
+                        </div>
                         <p>From model selection to deployment pipelines, we build AI that survives production.</p>
                         <ul>
                             <li>• Time-series & anomaly detection</li>
@@ -957,8 +1382,17 @@
                         </ul>
                     </div>
 
-                    <div class="card service-card">
-                        <h3>Product & App Development</h3>
+                    <div class="card service-card reveal" data-reveal>
+                        <div class="card-title-row">
+                            <span class="title-icon alt" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M4 6h16v12H4z" />
+                                    <path d="M9 18v2h6v-2" />
+                                    <path d="M8 10h8" />
+                                </svg>
+                            </span>
+                            <h3>Product & App Development</h3>
+                        </div>
                         <p>End-to-end product engineering with clean architecture and maintainable code.</p>
                         <ul>
                             <li>• Web & mobile apps</li>
@@ -967,8 +1401,16 @@
                         </ul>
                     </div>
 
-                    <div class="card service-card">
-                        <h3>Cloud & DevOps</h3>
+                    <div class="card service-card reveal" data-reveal>
+                        <div class="card-title-row">
+                            <span class="title-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M7 18a4 4 0 1 1 .8-7.92A5 5 0 0 1 20 12.5" />
+                                    <path d="M16 16h-1a3 3 0 0 1 0-6" />
+                                </svg>
+                            </span>
+                            <h3>Cloud & DevOps</h3>
+                        </div>
                         <p>We design CI/CD, infrastructure-as-code and monitoring tailored to your stack.</p>
                         <ul>
                             <li>• Azure, AWS, GCP</li>
@@ -977,8 +1419,23 @@
                         </ul>
                     </div>
 
-                    <div class="card service-card">
-                        <h3>3–4 Week Delivery Sprints</h3>
+                    <div class="card service-card reveal" data-reveal>
+                        <div class="card-title-row">
+                            <span class="title-icon alt" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M12 2v4" />
+                                    <path d="M12 18v4" />
+                                    <path d="M4.93 4.93l2.83 2.83" />
+                                    <path d="M16.24 16.24l2.83 2.83" />
+                                    <path d="M2 12h4" />
+                                    <path d="M18 12h4" />
+                                    <path d="M4.93 19.07l2.83-2.83" />
+                                    <path d="M16.24 7.76l2.83-2.83" />
+                                    <circle cx="12" cy="12" r="4" />
+                                </svg>
+                            </span>
+                            <h3>3–4 Week Delivery Sprints</h3>
+                        </div>
                         <p>From scoped requirements to a working release — fast, disciplined, and production-minded.</p>
                         <ul>
                             <li>• Full deliverable solution (app + backend + infra)</li>
@@ -987,8 +1444,16 @@
                         </ul>
                     </div>
 
-                    <div class="card service-card">
-                        <h3>Industrial & Edge Systems</h3>
+                    <div class="card service-card reveal" data-reveal>
+                        <div class="card-title-row">
+                            <span class="title-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M4 20V10l8-6 8 6v10" />
+                                    <path d="M9 20v-6h6v6" />
+                                </svg>
+                            </span>
+                            <h3>Industrial & Edge Systems</h3>
+                        </div>
                         <p>Experience working with PLCs, sensor stacks and high-availability shop-floor systems.</p>
                         <ul>
                             <li>• PLC / OPC UA integration</li>
@@ -1003,26 +1468,27 @@
         <!-- PROCESS -->
         <section id="process">
             <div class="container">
-                <div class="section-heading">
+                <div class="section-heading reveal" data-reveal>
                     <h2>How we work with you</h2>
                     <p>A simple, transparent process that fits both product builds and targeted consulting work — optimized for 3–4 week deliverables.</p>
+                    <img class="section-visual reveal" data-reveal src="assets/images/process-flow.svg" alt="Delivery process flow">
                 </div>
 
                 <div class="process-steps">
-                    <div class="step">
+                    <div class="step reveal" data-reveal>
                         <div class="step-title">1 · Discovery & scoping</div>
                         We map your goals, constraints, existing systems and success metrics into a clear, written
                         brief.
                     </div>
-                    <div class="step">
+                    <div class="step reveal" data-reveal>
                         <div class="step-title">2 · Architecture & design</div>
                         High-level design, data flow and component choices that balance risk, time-to-market and cost.
                     </div>
-                    <div class="step">
+                    <div class="step reveal" data-reveal>
                         <div class="step-title">3 · Build & validate</div>
                         Iterative implementation with demos, test harnesses and clear visibility into progress — targeting a working release within 3–4 weeks.
                     </div>
-                    <div class="step">
+                    <div class="step reveal" data-reveal>
                         <div class="step-title">4 · Deploy & evolve</div>
                         Production rollout (cloud or on-prem), monitoring, support handover, and continuous refinement based on real-world feedback.
                     </div>
@@ -1033,14 +1499,14 @@
         <!-- ABOUT + CONTACT -->
         <section id="about">
             <div class="container">
-                <div class="section-heading">
+                <div class="section-heading reveal" data-reveal>
                     <h2>About ThinkHive Labs</h2>
                     <p>ThinkHive Labs is led by experienced engineering leadership with hands-on product and AI
                         background.</p>
                 </div>
 
                 <div class="two-col">
-                    <div>
+                    <div class="reveal" data-reveal>
                         <p style="font-size:14px;color:var(--muted);margin-bottom:12px;">
                             Founder &amp; CEO of ThinkHive Labs, and an AI Product Architect with 22+ years of experience
                             designing and delivering enterprise-scale platforms across Industrial AI, semiconductors,
@@ -1060,7 +1526,7 @@
                         </p>
                     </div>
 
-                    <div id="contact">
+                    <div id="contact" class="reveal" data-reveal>
                         <div class="contact-card">
                             <h3>Start a conversation</h3>
                             <p>
@@ -1078,10 +1544,8 @@
 
                             <div class="contact-meta" style="margin-top:12px;">
                                 Location: Bengaluru, India<br>
-                                Engagements: remote + on-site by agreement
-                            </div>
-
-                            <a href="mailto:contact@thinkhivelabs.com?subject=Enquiry%20-%20ThinkHive%20Labs"
+                                        Hands-on leader building AI-powered products (RAG, agentic workflows, and secure on-prem deployments)
+                                        using frontier models including Claude, Gemini, and GPT-based systems.
                                 class="btn-primary" style="margin-top:16px;display:inline-flex;">
                                 Email ThinkHive Labs →
                             </a>
@@ -1114,6 +1578,30 @@
 
         // dynamic year
         document.getElementById("year").textContent = new Date().getFullYear();
+
+        // scroll reveal (lightweight, enterprise feel)
+        (function initReveal() {
+            const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            const revealEls = Array.from(document.querySelectorAll('[data-reveal]'));
+
+            if (prefersReducedMotion || !('IntersectionObserver' in window)) {
+                revealEls.forEach((el) => el.classList.add('in-view'));
+                return;
+            }
+
+            const observer = new IntersectionObserver(
+                (entries, obs) => {
+                    for (const entry of entries) {
+                        if (!entry.isIntersecting) continue;
+                        entry.target.classList.add('in-view');
+                        obs.unobserve(entry.target);
+                    }
+                },
+                { threshold: 0.12, rootMargin: '0px 0px -8% 0px' }
+            );
+
+            revealEls.forEach((el) => observer.observe(el));
+        })();
     </script>
 
 </body>

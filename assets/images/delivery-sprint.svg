@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 260" role="img" aria-label="3–4 week delivery sprint timeline">
+  <defs>
+    <linearGradient id="track" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#1a73e8" stop-opacity="0.65"/>
+      <stop offset="1" stop-color="#3cb879" stop-opacity="0.65"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="30" y="30" width="840" height="200" rx="26" fill="#ffffff" stroke="#e5e7eb"/>
+
+  <path d="M90 140 H810" stroke="#e5e7eb" stroke-width="12" stroke-linecap="round"/>
+  <path d="M90 140 H690" stroke="url(#track)" stroke-width="12" stroke-linecap="round"/>
+
+  <g>
+    <circle cx="90" cy="140" r="18" fill="#1a73e8" fill-opacity="0.9"/>
+    <circle cx="330" cy="140" r="18" fill="#1a73e8" fill-opacity="0.7"/>
+    <circle cx="520" cy="140" r="18" fill="#3cb879" fill-opacity="0.75"/>
+    <circle cx="690" cy="140" r="18" fill="#3cb879" fill-opacity="0.9"/>
+    <circle cx="810" cy="140" r="14" fill="#94a3b8" fill-opacity="0.7"/>
+  </g>
+
+  <g fill="#0b2c53" fill-opacity="0.85" font-family="Inter, system-ui, -apple-system, Arial" font-size="18" font-weight="600">
+    <text x="70" y="95">Scope</text>
+    <text x="288" y="95">Design</text>
+    <text x="480" y="95">Build</text>
+    <text x="648" y="95">Go‑Live</text>
+  </g>
+
+  <g fill="#6b7280" font-family="Inter, system-ui, -apple-system, Arial" font-size="14" font-weight="500">
+    <text x="62" y="190">Week 1</text>
+    <text x="302" y="190">Week 2</text>
+    <text x="492" y="190">Week 3</text>
+    <text x="660" y="190">Week 4</text>
+    <text x="780" y="190">+</text>
+  </g>
+</svg>
