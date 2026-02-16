@@ -1,66 +1,120 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 360" role="img" aria-label="SignalForge broker integration illustration">
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#1a73e8" stop-opacity="0.10"/>
-      <stop offset="1" stop-color="#3cb879" stop-opacity="0.10"/>
+    <linearGradient id="sfBg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1a73e8" stop-opacity="0.06"/>
+      <stop offset="1" stop-color="#3cb879" stop-opacity="0.06"/>
     </linearGradient>
-    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="16" stdDeviation="16" flood-color="#0b2c53" flood-opacity="0.10"/>
+    <linearGradient id="sfPipe" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#1a73e8"/><stop offset="1" stop-color="#3cb879"/>
+    </linearGradient>
+    <filter id="sfShadow">
+      <feDropShadow dx="0" dy="6" stdDeviation="12" flood-color="#0b2c53" flood-opacity="0.08"/>
     </filter>
-    <linearGradient id="pipe" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#1a73e8" stop-opacity="0.70"/>
-      <stop offset="1" stop-color="#3cb879" stop-opacity="0.70"/>
-    </linearGradient>
   </defs>
 
-  <rect x="30" y="30" width="840" height="300" rx="26" fill="#ffffff" stroke="#e5e7eb"/>
-  <rect x="60" y="60" width="780" height="240" rx="20" fill="url(#bg)" stroke="#e5e7eb"/>
+  <rect x="30" y="30" width="840" height="300" rx="22" fill="url(#sfBg)" stroke="#e5e7eb" stroke-opacity="0.4"/>
 
-  <!-- left: SignalForge -->
-  <g filter="url(#shadow)">
-    <rect x="105" y="110" width="240" height="140" rx="20" fill="#ffffff" stroke="#e5e7eb"/>
-  </g>
-  <g>
-    <rect x="130" y="135" width="190" height="18" rx="9" fill="#e0ebff"/>
-    <rect x="130" y="165" width="150" height="12" rx="7" fill="#e5e7eb"/>
-    <rect x="130" y="187" width="190" height="12" rx="7" fill="#e5e7eb"/>
-    <rect x="130" y="209" width="120" height="12" rx="7" fill="#e5e7eb"/>
-    <circle cx="308" cy="211" r="7" fill="#3cb879" fill-opacity="0.85"/>
-  </g>
+  <!-- Header label -->
+  <text x="450" y="68" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="12" font-weight="600" fill="#6b7280" opacity="0">
+    Real trades • Order routing • Positions • Alerts
+    <animate attributeName="opacity" from="0" to="1" dur="0.4s" fill="freeze" begin="0.3s"/>
+  </text>
 
-  <!-- right: Broker -->
-  <g filter="url(#shadow)">
-    <rect x="555" y="110" width="240" height="140" rx="20" fill="#ffffff" stroke="#e5e7eb"/>
+  <!-- Left: SignalForge Card -->
+  <g filter="url(#sfShadow)" opacity="0">
+    <animate attributeName="opacity" from="0" to="1" dur="0.5s" fill="freeze" begin="0.4s"/>
+    <rect x="80" y="95" width="260" height="190" rx="18" fill="#ffffff" stroke="#e5e7eb" stroke-opacity="0.5"/>
   </g>
-  <g>
-    <rect x="580" y="135" width="190" height="18" rx="9" fill="#dafaf0"/>
-    <rect x="580" y="165" width="170" height="12" rx="7" fill="#e5e7eb"/>
-    <rect x="580" y="187" width="190" height="12" rx="7" fill="#e5e7eb"/>
-    <rect x="580" y="209" width="110" height="12" rx="7" fill="#e5e7eb"/>
-    <circle cx="755" cy="211" r="7" fill="#1a73e8" fill-opacity="0.75"/>
-  </g>
+  <g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.4s" fill="freeze" begin="0.6s"/>
+    <text x="110" y="128" font-family="Inter,system-ui,sans-serif" font-size="15" font-weight="700" fill="#0b2c53">SignalForge</text>
+    <rect x="230" y="115" width="55" height="18" rx="9" fill="#e0ebff"/>
+    <text x="240" y="128" font-family="Inter,system-ui,sans-serif" font-size="9" font-weight="600" fill="#1a73e8">Engine</text>
 
-  <!-- middle pipe -->
-  <g fill="none" stroke-linecap="round" stroke-width="10">
-    <path d="M360 180 C 420 130, 480 130, 540 180" stroke="url(#pipe)" stroke-opacity="0.55"/>
-    <path d="M360 205 C 420 255, 480 255, 540 205" stroke="url(#pipe)" stroke-opacity="0.55"/>
-  </g>
+    <!-- Signal items -->
+    <text x="110" y="158" font-family="Inter,system-ui,sans-serif" font-size="10" fill="#6b7280">▸ STAFA Composite Score</text>
+    <text x="110" y="178" font-family="Inter,system-ui,sans-serif" font-size="10" fill="#6b7280">▸ AI Signal Classification</text>
+    <text x="110" y="198" font-family="Inter,system-ui,sans-serif" font-size="10" fill="#6b7280">▸ Risk-Adjusted Sizing</text>
+    <text x="110" y="218" font-family="Inter,system-ui,sans-serif" font-size="10" fill="#6b7280">▸ Multi-Timeframe Analysis</text>
 
-  <!-- nodes -->
-  <g>
-    <circle cx="360" cy="180" r="9" fill="#1a73e8" fill-opacity="0.85"/>
-    <circle cx="540" cy="180" r="9" fill="#3cb879" fill-opacity="0.85"/>
-    <circle cx="360" cy="205" r="9" fill="#3cb879" fill-opacity="0.75"/>
-    <circle cx="540" cy="205" r="9" fill="#1a73e8" fill-opacity="0.75"/>
+    <!-- Status dot -->
+    <circle cx="110" cy="250" r="5" fill="#22c55e">
+      <animate attributeName="opacity" from="1" to="0.4" dur="1.5s" repeatCount="indefinite"/>
+    </circle>
+    <text x="122" y="254" font-family="Inter,system-ui,sans-serif" font-size="9" font-weight="600" fill="#22c55e">Connected</text>
+
+    <!-- Signal count badge -->
+    <rect x="230" y="243" width="80" height="20" rx="10" fill="#f0fdf4" stroke="#bbf7d0" stroke-opacity="0.5"/>
+    <text x="245" y="257" font-family="Inter,system-ui,sans-serif" font-size="9" font-weight="600" fill="#16a34a">42 Signals</text>
   </g>
 
-  <!-- label chips -->
-  <g font-family="Inter, system-ui, -apple-system, Arial" font-size="14" font-weight="600" fill="#0b2c53" fill-opacity="0.85">
-    <text x="160" y="268">SignalForge</text>
-    <text x="625" y="268">Broker Platform</text>
+  <!-- Right: Broker Platform Card -->
+  <g filter="url(#sfShadow)" opacity="0">
+    <animate attributeName="opacity" from="0" to="1" dur="0.5s" fill="freeze" begin="0.5s"/>
+    <rect x="560" y="95" width="260" height="190" rx="18" fill="#ffffff" stroke="#e5e7eb" stroke-opacity="0.5"/>
+  </g>
+  <g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.4s" fill="freeze" begin="0.7s"/>
+    <text x="590" y="128" font-family="Inter,system-ui,sans-serif" font-size="15" font-weight="700" fill="#0b2c53">Broker Platform</text>
+    <rect x="740" y="115" width="50" height="18" rx="9" fill="#dafaf0"/>
+    <text x="748" y="128" font-family="Inter,system-ui,sans-serif" font-size="9" font-weight="600" fill="#16a34a">Live</text>
+
+    <!-- Broker items -->
+    <text x="590" y="158" font-family="Inter,system-ui,sans-serif" font-size="10" fill="#6b7280">▸ Order Execution (FIX)</text>
+    <text x="590" y="178" font-family="Inter,system-ui,sans-serif" font-size="10" fill="#6b7280">▸ Portfolio Positions</text>
+    <text x="590" y="198" font-family="Inter,system-ui,sans-serif" font-size="10" fill="#6b7280">▸ Account Balance &amp; P/L</text>
+    <text x="590" y="218" font-family="Inter,system-ui,sans-serif" font-size="10" fill="#6b7280">▸ Market Data Stream</text>
+
+    <!-- Status -->
+    <circle cx="590" cy="250" r="5" fill="#1a73e8">
+      <animate attributeName="opacity" from="1" to="0.4" dur="1.5s" repeatCount="indefinite"/>
+    </circle>
+    <text x="602" y="254" font-family="Inter,system-ui,sans-serif" font-size="9" font-weight="600" fill="#1a73e8">Streaming</text>
+
+    <!-- Latency badge -->
+    <rect x="720" y="243" width="70" height="20" rx="10" fill="#e0ebff" stroke="#bfdbfe" stroke-opacity="0.5"/>
+    <text x="732" y="257" font-family="Inter,system-ui,sans-serif" font-size="9" font-weight="600" fill="#1a73e8">&lt;12ms</text>
   </g>
 
-  <g font-family="Inter, system-ui, -apple-system, Arial" font-size="13" font-weight="500" fill="#6b7280">
-    <text x="362" y="106">Real trades • Order routing • Positions • Alerts</text>
+  <!-- Integration pipes with animated flow -->
+  <g fill="none" stroke-linecap="round" stroke-width="6" opacity="0">
+    <animate attributeName="opacity" from="0" to="1" dur="0.5s" fill="freeze" begin="1s"/>
+    <!-- Top pipe: SignalForge → Broker -->
+    <path d="M342 165 C 400 110, 500 110, 558 165" stroke="url(#sfPipe)" stroke-opacity="0.4"/>
+    <!-- Bottom pipe: Broker → SignalForge -->
+    <path d="M342 215 C 400 270, 500 270, 558 215" stroke="url(#sfPipe)" stroke-opacity="0.4"/>
+  </g>
+
+  <!-- Animated dots flowing through pipes -->
+  <!-- Top pipe: left to right -->
+  <circle r="5" fill="#1a73e8" opacity="0">
+    <animate attributeName="opacity" from="0" to="0.8" dur="0.3s" fill="freeze" begin="1.4s"/>
+    <animateMotion path="M342 165 C 400 110, 500 110, 558 165" dur="2s" repeatCount="indefinite" begin="1.4s"/>
+  </circle>
+  <circle r="4" fill="#3cb879" opacity="0">
+    <animate attributeName="opacity" from="0" to="0.7" dur="0.3s" fill="freeze" begin="2.4s"/>
+    <animateMotion path="M342 165 C 400 110, 500 110, 558 165" dur="2s" repeatCount="indefinite" begin="2.4s"/>
+  </circle>
+
+  <!-- Bottom pipe: right to left -->
+  <circle r="5" fill="#3cb879" opacity="0">
+    <animate attributeName="opacity" from="0" to="0.8" dur="0.3s" fill="freeze" begin="1.8s"/>
+    <animateMotion path="M558 215 C 500 270, 400 270, 342 215" dur="2s" repeatCount="indefinite" begin="1.8s"/>
+  </circle>
+  <circle r="4" fill="#1a73e8" opacity="0">
+    <animate attributeName="opacity" from="0" to="0.7" dur="0.3s" fill="freeze" begin="2.8s"/>
+    <animateMotion path="M558 215 C 500 270, 400 270, 342 215" dur="2s" repeatCount="indefinite" begin="2.8s"/>
+  </circle>
+
+  <!-- Connection nodes -->
+  <g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.3s" fill="freeze" begin="1.2s"/>
+    <circle cx="342" cy="165" r="7" fill="#1a73e8"/>
+    <circle cx="558" cy="165" r="7" fill="#3cb879"/>
+    <circle cx="342" cy="215" r="7" fill="#3cb879"/>
+    <circle cx="558" cy="215" r="7" fill="#1a73e8"/>
+  </g>
+
+  <!-- Center label -->
+  <g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.4s" fill="freeze" begin="1.5s"/>
+    <rect x="415" y="177" width="70" height="22" rx="11" fill="#ffffff" stroke="#e5e7eb" stroke-opacity="0.5"/>
+    <text x="450" y="192" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="9" font-weight="700" fill="#0b2c53">API ↔ FIX</text>
   </g>
 </svg>

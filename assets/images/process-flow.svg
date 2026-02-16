@@ -1,39 +1,146 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 320" role="img" aria-label="Delivery process flow illustration">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 340" role="img" aria-label="Delivery process flow illustration">
   <defs>
-    <linearGradient id="track" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#1a73e8" stop-opacity="0.65"/>
-      <stop offset="1" stop-color="#3cb879" stop-opacity="0.65"/>
+    <linearGradient id="procTrack" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#1a73e8" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#3cb879" stop-opacity="0.55"/>
     </linearGradient>
-    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="16" stdDeviation="16" flood-color="#0b2c53" flood-opacity="0.10"/>
+    <linearGradient id="procBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1a73e8" stop-opacity="0.04"/>
+      <stop offset="1" stop-color="#3cb879" stop-opacity="0.04"/>
+    </linearGradient>
+    <filter id="procShadow">
+      <feDropShadow dx="0" dy="6" stdDeviation="10" flood-color="#0b2c53" flood-opacity="0.07"/>
     </filter>
   </defs>
 
-  <rect x="30" y="30" width="840" height="260" rx="26" fill="#ffffff" stroke="#e5e7eb"/>
+  <rect width="900" height="340" rx="22" fill="#ffffff"/>
+  <rect x="20" y="20" width="860" height="300" rx="18" fill="url(#procBg)"/>
 
-  <path d="M120 170H780" stroke="#e5e7eb" stroke-width="12" stroke-linecap="round"/>
-  <path d="M120 170H650" stroke="url(#track)" stroke-width="12" stroke-linecap="round"/>
+  <!-- Connecting track -->
+  <path d="M110 175 H790" stroke="#e5e7eb" stroke-width="4" stroke-linecap="round"/>
+  <path d="M110 175 H790" stroke="url(#procTrack)" stroke-width="4" stroke-linecap="round" stroke-dasharray="680" stroke-dashoffset="680">
+    <animate attributeName="stroke-dashoffset" from="680" to="0" dur="2.5s" fill="freeze" begin="0.3s"/>
+  </path>
 
-  <g filter="url(#shadow)">
-    <circle cx="120" cy="170" r="22" fill="#1a73e8" fill-opacity="0.90"/>
-    <circle cx="330" cy="170" r="22" fill="#1a73e8" fill-opacity="0.75"/>
-    <circle cx="500" cy="170" r="22" fill="#3cb879" fill-opacity="0.78"/>
-    <circle cx="650" cy="170" r="22" fill="#3cb879" fill-opacity="0.90"/>
-    <circle cx="780" cy="170" r="18" fill="#94a3b8" fill-opacity="0.70"/>
+  <!-- Step 1: Discovery -->
+  <g filter="url(#procShadow)">
+    <rect x="55" y="80" width="160" height="190" rx="16" fill="#ffffff" stroke="#e5e7eb" stroke-opacity="0.5" opacity="0">
+      <animate attributeName="opacity" from="0" to="1" dur="0.4s" fill="freeze" begin="0.3s"/>
+    </rect>
   </g>
-
-  <g font-family="Inter, system-ui, -apple-system, Arial" fill="#0b2c53" fill-opacity="0.85">
-    <text x="92" y="105" font-size="16" font-weight="700">Discovery</text>
-    <text x="298" y="105" font-size="16" font-weight="700">Design</text>
-    <text x="474" y="105" font-size="16" font-weight="700">Build</text>
-    <text x="616" y="105" font-size="16" font-weight="700">Deploy</text>
+  <circle cx="135" cy="135" r="22" fill="#1a73e8" opacity="0">
+    <animate attributeName="opacity" from="0" to="0.12" dur="0.3s" fill="freeze" begin="0.4s"/>
+  </circle>
+  <circle cx="135" cy="135" r="16" fill="#1a73e8" opacity="0">
+    <animate attributeName="opacity" from="0" to="1" dur="0.3s" fill="freeze" begin="0.4s"/>
+  </circle>
+  <!-- Magnifier icon -->
+  <g opacity="0" transform="translate(135,135)">
+    <animate attributeName="opacity" from="0" to="1" dur="0.3s" fill="freeze" begin="0.6s"/>
+    <circle cx="-2" cy="-2" r="5" fill="none" stroke="#fff" stroke-width="1.8"/>
+    <line x1="2" y1="2" x2="6" y2="6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
   </g>
+  <text x="135" y="180" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="13" font-weight="700" fill="#0b2c53" opacity="0">
+    Discovery<animate attributeName="opacity" from="0" to="1" dur="0.3s" fill="freeze" begin="0.5s"/>
+  </text>
+  <text x="135" y="200" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="11" fill="#6b7280" opacity="0">
+    Goals &amp; metrics<animate attributeName="opacity" from="0" to="1" dur="0.3s" fill="freeze" begin="0.6s"/>
+  </text>
+  <text x="135" y="255" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="600" fill="#1a73e8" opacity="0">
+    Week 1<animate attributeName="opacity" from="0" to="1" dur="0.3s" fill="freeze" begin="0.7s"/>
+  </text>
 
-  <g font-family="Inter, system-ui, -apple-system, Arial" fill="#6b7280" font-size="13" font-weight="600">
-    <text x="88" y="235">Week 1</text>
-    <text x="303" y="235">Week 2</text>
-    <text x="472" y="235">Week 3</text>
-    <text x="622" y="235">Week 4</text>
-    <text x="766" y="235">+</text>
+  <!-- Arrow 1→2 -->
+  <path d="M220 175 L265 175" stroke="#1a73e8" stroke-width="2" stroke-opacity="0.3" fill="none" marker-end="none" opacity="0">
+    <animate attributeName="opacity" from="0" to="1" dur="0.3s" fill="freeze" begin="1s"/>
+  </path>
+
+  <!-- Step 2: Architecture -->
+  <g filter="url(#procShadow)">
+    <rect x="270" y="80" width="160" height="190" rx="16" fill="#ffffff" stroke="#e5e7eb" stroke-opacity="0.5" opacity="0">
+      <animate attributeName="opacity" from="0" to="1" dur="0.4s" fill="freeze" begin="0.8s"/>
+    </rect>
   </g>
+  <circle cx="350" cy="135" r="16" fill="#2563eb" opacity="0">
+    <animate attributeName="opacity" from="0" to="1" dur="0.3s" fill="freeze" begin="0.9s"/>
+  </circle>
+  <!-- Blueprint icon -->
+  <g opacity="0" transform="translate(350,135)">
+    <animate attributeName="opacity" from="0" to="1" dur="0.3s" fill="freeze" begin="1.1s"/>
+    <rect x="-7" y="-7" width="14" height="14" rx="2" fill="none" stroke="#fff" stroke-width="1.8"/>
+    <line x1="-7" y1="-1" x2="7" y2="-1" stroke="#fff" stroke-width="1.2"/>
+    <line x1="0" y1="-7" x2="0" y2="7" stroke="#fff" stroke-width="1.2"/>
+  </g>
+  <text x="350" y="180" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="13" font-weight="700" fill="#0b2c53" opacity="0">
+    Architecture<animate attributeName="opacity" from="0" to="1" dur="0.3s" fill="freeze" begin="1s"/>
+  </text>
+  <text x="350" y="200" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="11" fill="#6b7280" opacity="0">
+    Design &amp; plan<animate attributeName="opacity" from="0" to="1" dur="0.3s" fill="freeze" begin="1.1s"/>
+  </text>
+  <text x="350" y="255" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="600" fill="#2563eb" opacity="0">
+    Week 2<animate attributeName="opacity" from="0" to="1" dur="0.3s" fill="freeze" begin="1.2s"/>
+  </text>
+
+  <!-- Step 3: Build -->
+  <g filter="url(#procShadow)">
+    <rect x="485" y="80" width="160" height="190" rx="16" fill="#ffffff" stroke="#e5e7eb" stroke-opacity="0.5" opacity="0">
+      <animate attributeName="opacity" from="0" to="1" dur="0.4s" fill="freeze" begin="1.3s"/>
+    </rect>
+  </g>
+  <circle cx="565" cy="135" r="16" fill="#3cb879" opacity="0">
+    <animate attributeName="opacity" from="0" to="1" dur="0.3s" fill="freeze" begin="1.4s"/>
+  </circle>
+  <!-- Code brackets icon -->
+  <g opacity="0" transform="translate(565,135)">
+    <animate attributeName="opacity" from="0" to="1" dur="0.3s" fill="freeze" begin="1.6s"/>
+    <polyline points="-6,-5 -9,0 -6,5" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+    <polyline points="6,-5 9,0 6,5" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+    <line x1="2" y1="-6" x2="-2" y2="6" stroke="#fff" stroke-width="1.3" stroke-linecap="round"/>
+  </g>
+  <text x="565" y="180" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="13" font-weight="700" fill="#0b2c53" opacity="0">
+    Build &amp; Test<animate attributeName="opacity" from="0" to="1" dur="0.3s" fill="freeze" begin="1.5s"/>
+  </text>
+  <text x="565" y="200" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="11" fill="#6b7280" opacity="0">
+    Iterative delivery<animate attributeName="opacity" from="0" to="1" dur="0.3s" fill="freeze" begin="1.6s"/>
+  </text>
+  <text x="565" y="255" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="600" fill="#3cb879" opacity="0">
+    Week 3<animate attributeName="opacity" from="0" to="1" dur="0.3s" fill="freeze" begin="1.7s"/>
+  </text>
+
+  <!-- Step 4: Deploy -->
+  <g filter="url(#procShadow)">
+    <rect x="700" y="80" width="160" height="190" rx="16" fill="#ffffff" stroke="#e5e7eb" stroke-opacity="0.5" opacity="0">
+      <animate attributeName="opacity" from="0" to="1" dur="0.4s" fill="freeze" begin="1.8s"/>
+    </rect>
+  </g>
+  <circle cx="780" cy="135" r="16" fill="#22c55e" opacity="0">
+    <animate attributeName="opacity" from="0" to="1" dur="0.3s" fill="freeze" begin="1.9s"/>
+  </circle>
+  <!-- Rocket icon -->
+  <g opacity="0" transform="translate(780,135)">
+    <animate attributeName="opacity" from="0" to="1" dur="0.3s" fill="freeze" begin="2.1s"/>
+    <path d="M0-8 C3-5 5 0 3 5 L0 3 L-3 5 C-5 0 -3-5 0-8Z" fill="#fff"/>
+    <line x1="-4" y1="6" x2="-6" y2="8" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="4" y1="6" x2="6" y2="8" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/>
+  </g>
+  <!-- Pulse ring -->
+  <circle cx="780" cy="135" r="16" fill="none" stroke="#22c55e" stroke-width="1.5" opacity="0">
+    <animate attributeName="opacity" from="0.5" to="0" dur="1.5s" repeatCount="indefinite" begin="2.5s"/>
+    <animate attributeName="r" from="16" to="30" dur="1.5s" repeatCount="indefinite" begin="2.5s"/>
+  </circle>
+  <text x="780" y="180" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="13" font-weight="700" fill="#0b2c53" opacity="0">
+    Deploy<animate attributeName="opacity" from="0" to="1" dur="0.3s" fill="freeze" begin="2s"/>
+  </text>
+  <text x="780" y="200" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="11" fill="#6b7280" opacity="0">
+    Go live &amp; evolve<animate attributeName="opacity" from="0" to="1" dur="0.3s" fill="freeze" begin="2.1s"/>
+  </text>
+  <text x="780" y="255" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="600" fill="#22c55e" opacity="0">
+    Week 4+<animate attributeName="opacity" from="0" to="1" dur="0.3s" fill="freeze" begin="2.2s"/>
+  </text>
+
+  <!-- Bottom tagline -->
+  <text x="450" y="310" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="12" font-weight="600" fill="#0b2c53" fill-opacity="0.4" opacity="0">
+    Transparent, disciplined process · 3–4 week delivery cycles
+    <animate attributeName="opacity" from="0" to="1" dur="0.5s" fill="freeze" begin="2.5s"/>
+  </text>
 </svg>

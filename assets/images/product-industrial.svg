@@ -1,44 +1,137 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" role="img" aria-label="Industrial edge AI illustration">
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#0b2c53" stop-opacity="0.10"/>
-      <stop offset="1" stop-color="#3cb879" stop-opacity="0.10"/>
+    <linearGradient id="indBg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b2c53" stop-opacity="0.06"/>
+      <stop offset="1" stop-color="#3cb879" stop-opacity="0.06"/>
     </linearGradient>
-    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#0b2c53" flood-opacity="0.10"/>
+    <linearGradient id="indWave" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#1a73e8"/><stop offset="1" stop-color="#3cb879"/>
+    </linearGradient>
+    <filter id="indShadow">
+      <feDropShadow dx="0" dy="8" stdDeviation="14" flood-color="#0b2c53" flood-opacity="0.08"/>
     </filter>
   </defs>
 
-  <rect x="40" y="40" width="720" height="440" rx="26" fill="url(#bg)" stroke="#e5e7eb"/>
+  <rect x="40" y="40" width="720" height="440" rx="26" fill="url(#indBg)" stroke="#e5e7eb" stroke-opacity="0.4"/>
 
-  <g filter="url(#shadow)">
-    <!-- edge gateway -->
-    <rect x="105" y="165" width="210" height="210" rx="22" fill="#ffffff" stroke="#e5e7eb"/>
-    <rect x="135" y="205" width="150" height="18" rx="9" fill="#e5e7eb"/>
-    <rect x="135" y="238" width="110" height="12" rx="7" fill="#e5e7eb"/>
-    <rect x="135" y="262" width="150" height="12" rx="7" fill="#e5e7eb"/>
-    <circle cx="148" cy="315" r="7" fill="#3cb879"/>
-    <circle cx="172" cy="315" r="7" fill="#1a73e8"/>
-    <circle cx="196" cy="315" r="7" fill="#94a3b8"/>
+  <!-- Edge Gateway Panel -->
+  <g filter="url(#indShadow)">
+    <rect x="80" y="100" width="240" height="290" rx="18" fill="#ffffff" stroke="#e5e7eb" stroke-opacity="0.5"/>
+  </g>
+  <text x="110" y="135" font-family="Inter,system-ui,sans-serif" font-size="14" font-weight="700" fill="#0b2c53">Edge Gateway</text>
 
-    <!-- machine -->
-    <rect x="360" y="130" width="330" height="280" rx="24" fill="#ffffff" stroke="#e5e7eb"/>
-    <rect x="395" y="170" width="260" height="50" rx="14" fill="#e0ebff"/>
-    <rect x="395" y="238" width="260" height="92" rx="18" fill="#f7f9fc" stroke="#e5e7eb"/>
-    <rect x="395" y="350" width="160" height="28" rx="12" fill="#dafaf0"/>
+  <!-- Sensor readings with animation -->
+  <text x="110" y="165" font-family="Inter,system-ui,sans-serif" font-size="10" fill="#6b7280">Temperature</text>
+  <rect x="110" y="172" width="180" height="8" rx="4" fill="#e5e7eb"/>
+  <rect x="110" y="172" width="0" height="8" rx="4" fill="#ef4444" opacity="0.6">
+    <animate attributeName="width" from="0" to="135" dur="1s" fill="freeze" begin="0.5s"/>
+  </rect>
+  <text x="295" y="180" font-family="Inter,system-ui,sans-serif" font-size="9" font-weight="600" fill="#ef4444" opacity="0">
+    75°C<animate attributeName="opacity" from="0" to="1" dur="0.3s" fill="freeze" begin="1.2s"/>
+  </text>
+
+  <text x="110" y="200" font-family="Inter,system-ui,sans-serif" font-size="10" fill="#6b7280">Vibration</text>
+  <rect x="110" y="207" width="180" height="8" rx="4" fill="#e5e7eb"/>
+  <rect x="110" y="207" width="0" height="8" rx="4" fill="url(#indWave)" opacity="0.65">
+    <animate attributeName="width" from="0" to="95" dur="1s" fill="freeze" begin="0.7s"/>
+  </rect>
+
+  <text x="110" y="235" font-family="Inter,system-ui,sans-serif" font-size="10" fill="#6b7280">Pressure</text>
+  <rect x="110" y="242" width="180" height="8" rx="4" fill="#e5e7eb"/>
+  <rect x="110" y="242" width="0" height="8" rx="4" fill="#3cb879" opacity="0.65">
+    <animate attributeName="width" from="0" to="160" dur="1s" fill="freeze" begin="0.9s"/>
+  </rect>
+
+  <!-- Status lights -->
+  <g transform="translate(110,290)">
+    <circle cx="0" cy="0" r="6" fill="#22c55e">
+      <animate attributeName="opacity" from="1" to="0.4" dur="1.5s" repeatCount="indefinite"/>
+    </circle>
+    <text x="14" y="4" font-family="Inter,system-ui,sans-serif" font-size="10" font-weight="600" fill="#22c55e">PLC Connected</text>
+  </g>
+  <g transform="translate(110,314)">
+    <circle cx="0" cy="0" r="6" fill="#1a73e8">
+      <animate attributeName="opacity" from="0.4" to="1" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <text x="14" y="4" font-family="Inter,system-ui,sans-serif" font-size="10" font-weight="600" fill="#1a73e8">Streaming Data</text>
+  </g>
+  <g transform="translate(110,338)">
+    <circle cx="0" cy="0" r="6" fill="#f59e0b"/>
+    <text x="14" y="4" font-family="Inter,system-ui,sans-serif" font-size="10" font-weight="600" fill="#f59e0b">Alert Active</text>
   </g>
 
-  <!-- telemetry lines -->
-  <g fill="none" stroke="#1a73e8" stroke-opacity="0.35" stroke-width="4" stroke-linecap="round">
-    <path d="M315 245 C 340 245, 335 245, 360 245"/>
-    <path d="M315 290 C 340 290, 335 290, 360 290"/>
-    <path d="M315 335 C 340 335, 335 335, 360 335"/>
+  <!-- Main Dashboard Panel -->
+  <g filter="url(#indShadow)">
+    <rect x="360" y="100" width="340" height="290" rx="18" fill="#ffffff" stroke="#e5e7eb" stroke-opacity="0.5"/>
+  </g>
+  <text x="390" y="135" font-family="Inter,system-ui,sans-serif" font-size="14" font-weight="700" fill="#0b2c53">Predictive Analytics</text>
+
+  <!-- Time-series wave -->
+  <path d="M385 210 Q410 180,435 210 T485 210 T535 210 T585 210 T635 210 T670 210" fill="none" stroke="#e5e7eb" stroke-width="1.5" opacity="0.6"/>
+  <path d="M385 210 Q410 175,435 215 T485 195 T535 220 T585 190 T635 205 T670 185" fill="none" stroke="url(#indWave)" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="300" stroke-dashoffset="300">
+    <animate attributeName="stroke-dashoffset" from="300" to="0" dur="2s" fill="freeze" begin="0.5s"/>
+  </path>
+  <!-- Area under curve -->
+  <path d="M385 210 Q410 175,435 215 T485 195 T535 220 T585 190 T635 205 T670 185 L670 240 L385 240Z" fill="url(#indWave)" opacity="0" fill-opacity="0.05">
+    <animate attributeName="opacity" from="0" to="1" dur="0.5s" fill="freeze" begin="2s"/>
+  </path>
+
+  <!-- Anomaly detection box -->
+  <rect x="385" y="260" width="140" height="50" rx="12" fill="#fef2f2" stroke="#fecaca" stroke-opacity="0.6" opacity="0">
+    <animate attributeName="opacity" from="0" to="1" dur="0.3s" fill="freeze" begin="2.2s"/>
+  </rect>
+  <text x="400" y="282" font-family="Inter,system-ui,sans-serif" font-size="10" font-weight="700" fill="#dc2626" opacity="0">
+    ⚠ Anomaly Detected<animate attributeName="opacity" from="0" to="1" dur="0.3s" fill="freeze" begin="2.3s"/>
+  </text>
+  <text x="400" y="300" font-family="Inter,system-ui,sans-serif" font-size="9" fill="#6b7280" opacity="0">
+    Motor vibration spike<animate attributeName="opacity" from="0" to="1" dur="0.3s" fill="freeze" begin="2.4s"/>
+  </text>
+
+  <!-- Normal status box -->
+  <rect x="545" y="260" width="140" height="50" rx="12" fill="#f0fdf4" stroke="#bbf7d0" stroke-opacity="0.6" opacity="0">
+    <animate attributeName="opacity" from="0" to="1" dur="0.3s" fill="freeze" begin="2.2s"/>
+  </rect>
+  <text x="560" y="282" font-family="Inter,system-ui,sans-serif" font-size="10" font-weight="700" fill="#16a34a" opacity="0">
+    ✓ 4 Systems Normal<animate attributeName="opacity" from="0" to="1" dur="0.3s" fill="freeze" begin="2.3s"/>
+  </text>
+  <text x="560" y="300" font-family="Inter,system-ui,sans-serif" font-size="9" fill="#6b7280" opacity="0">
+    Last check: 2s ago<animate attributeName="opacity" from="0" to="1" dur="0.3s" fill="freeze" begin="2.4s"/>
+  </text>
+
+  <!-- Uptime gauge -->
+  <rect x="385" y="330" width="290" height="40" rx="10" fill="#f7f9fc" stroke="#e5e7eb" stroke-opacity="0.4" opacity="0">
+    <animate attributeName="opacity" from="0" to="1" dur="0.3s" fill="freeze" begin="2.5s"/>
+  </rect>
+  <text x="400" y="355" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="600" fill="#0b2c53" opacity="0">
+    Uptime: 99.97%<animate attributeName="opacity" from="0" to="1" dur="0.3s" fill="freeze" begin="2.6s"/>
+  </text>
+  <rect x="510" y="345" width="150" height="8" rx="4" fill="#e5e7eb" opacity="0">
+    <animate attributeName="opacity" from="0" to="1" dur="0.2s" fill="freeze" begin="2.5s"/>
+  </rect>
+  <rect x="510" y="345" width="0" height="8" rx="4" fill="#22c55e" opacity="0.7">
+    <animate attributeName="width" from="0" to="148" dur="1s" fill="freeze" begin="2.6s"/>
+    <animate attributeName="opacity" from="0" to="0.7" dur="0.3s" fill="freeze" begin="2.5s"/>
+  </rect>
+
+  <!-- Data flow connectors -->
+  <g fill="none" stroke="#1a73e8" stroke-opacity="0.25" stroke-width="2" stroke-dasharray="6 4">
+    <path d="M322 200 L360 200">
+      <animate attributeName="stroke-dashoffset" from="0" to="-20" dur="2s" repeatCount="indefinite"/>
+    </path>
+    <path d="M322 250 L360 250">
+      <animate attributeName="stroke-dashoffset" from="0" to="-20" dur="2s" repeatCount="indefinite"/>
+    </path>
+    <path d="M322 300 L360 300">
+      <animate attributeName="stroke-dashoffset" from="0" to="-20" dur="2s" repeatCount="indefinite"/>
+    </path>
   </g>
 
-  <!-- anomaly pulse -->
-  <g>
-    <circle cx="605" cy="194" r="10" fill="#3cb879" fill-opacity="0.85"/>
-    <circle cx="605" cy="194" r="24" fill="none" stroke="#3cb879" stroke-opacity="0.35" stroke-width="4"/>
-    <circle cx="605" cy="194" r="42" fill="none" stroke="#3cb879" stroke-opacity="0.20" stroke-width="3"/>
-  </g>
+  <!-- Animated anomaly pulse ring -->
+  <circle cx="420" cy="193" r="6" fill="#ef4444" opacity="0">
+    <animate attributeName="opacity" from="0" to="1" dur="0.3s" fill="freeze" begin="2.8s"/>
+  </circle>
+  <circle cx="420" cy="193" r="6" fill="none" stroke="#ef4444" stroke-width="1.5" opacity="0">
+    <animate attributeName="opacity" from="0.6" to="0" dur="1.5s" repeatCount="indefinite" begin="3s"/>
+    <animate attributeName="r" from="6" to="18" dur="1.5s" repeatCount="indefinite" begin="3s"/>
+  </circle>
 </svg>
