@@ -1349,6 +1349,496 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        /* ===== SCALPER PROOF LINE ===== */
+        .scalper-proof-line {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 18px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, rgba(34,197,94,0.08), rgba(34,197,94,0.04));
+            border: 1px solid rgba(34,197,94,0.25);
+            margin-bottom: 18px;
+            font-size: 14px;
+            color: var(--blue-dark);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            flex-wrap: wrap;
+        }
+
+        .scalper-proof-line:hover {
+            background: linear-gradient(135deg, rgba(34,197,94,0.14), rgba(34,197,94,0.08));
+            border-color: rgba(34,197,94,0.4);
+            transform: translateY(-1px);
+        }
+
+        .proof-pulse {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #22c55e;
+            animation: pulse-live 2s ease-in-out infinite;
+            flex-shrink: 0;
+        }
+
+        .proof-arrow {
+            font-weight: 600;
+            color: var(--blue);
+            font-size: 13px;
+            white-space: nowrap;
+        }
+
+        /* ===== CREDIBILITY BAR ===== */
+        .credibility-bar {
+            padding: 32px 0;
+            background: #ffffff;
+            border-bottom: 1px solid rgba(148,163,184,0.15);
+        }
+
+        .credibility-label {
+            text-align: center;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--muted);
+            margin-bottom: 18px;
+        }
+
+        .credibility-logos {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 36px;
+            flex-wrap: wrap;
+        }
+
+        .cred-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--blue-dark);
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+
+        .cred-logo:hover {
+            opacity: 1;
+        }
+
+        .cred-logo svg {
+            color: var(--blue);
+            flex-shrink: 0;
+        }
+
+        /* ===== SIGNALFORGE METRICS GRID ===== */
+        .sf-metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+
+        .sf-metric-card {
+            text-align: center;
+            padding: 24px 16px;
+            border-radius: 16px;
+            background: #ffffff;
+            border: 1px solid rgba(148,163,184,0.2);
+            box-shadow: 0 8px 24px rgba(15,23,42,0.04);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .sf-metric-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 32px rgba(15,23,42,0.08);
+        }
+
+        .sf-metric-number {
+            display: block;
+            font-size: 36px;
+            font-weight: 800;
+            color: var(--blue-dark);
+            line-height: 1.2;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .sf-metric-label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--blue-dark);
+            margin-top: 4px;
+        }
+
+        .sf-metric-sub {
+            display: block;
+            font-size: 12px;
+            color: var(--muted);
+            margin-top: 4px;
+        }
+
+        /* ===== SF PERFORMANCE WIDGET ===== */
+        .sf-performance {
+            background: #ffffff;
+            border-radius: 20px;
+            border: 1px solid rgba(148,163,184,0.2);
+            box-shadow: 0 12px 32px rgba(15,23,42,0.06);
+            padding: 28px;
+            margin-bottom: 32px;
+            overflow: hidden;
+        }
+
+        .sf-perf-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .sf-perf-header h3 {
+            font-size: 18px;
+            color: var(--blue-dark);
+            margin: 0;
+        }
+
+        .sf-perf-updated {
+            font-size: 12px;
+            color: var(--muted);
+            margin-left: auto;
+        }
+
+        .sf-perf-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+
+        .sf-perf-card {
+            padding: 20px;
+            border-radius: 14px;
+            background: rgba(247,249,252,0.8);
+            border: 1px solid rgba(148,163,184,0.15);
+            text-align: center;
+        }
+
+        .sf-perf-card.sf-perf-highlight {
+            background: linear-gradient(135deg, rgba(34,197,94,0.06), rgba(34,197,94,0.02));
+            border-color: rgba(34,197,94,0.2);
+        }
+
+        .sf-perf-value {
+            display: block;
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--blue-dark);
+            line-height: 1.2;
+        }
+
+        .sf-perf-label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--blue-dark);
+            margin-top: 6px;
+        }
+
+        .sf-perf-detail {
+            display: block;
+            font-size: 11px;
+            color: var(--muted);
+            margin-top: 4px;
+        }
+
+        /* ===== SF FEATURES GRID ===== */
+        .sf-features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .sf-feature-card {
+            padding: 22px;
+            border-radius: 16px;
+            background: #ffffff;
+            border: 1px solid rgba(148,163,184,0.2);
+            box-shadow: 0 6px 18px rgba(15,23,42,0.03);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .sf-feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 14px 28px rgba(15,23,42,0.08);
+        }
+
+        .sf-feature-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(26,115,232,0.08);
+            color: var(--blue);
+            margin-bottom: 12px;
+        }
+
+        .sf-feature-icon.alt {
+            background: rgba(60,184,121,0.08);
+            color: var(--green);
+        }
+
+        .sf-feature-icon svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .sf-feature-card h4 {
+            font-size: 15px;
+            color: var(--blue-dark);
+            margin-bottom: 6px;
+        }
+
+        .sf-feature-card p {
+            font-size: 13px;
+            color: var(--muted);
+            line-height: 1.5;
+        }
+
+        /* ===== PRICING GRID ===== */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .pricing-card {
+            padding: 28px 22px;
+            border-radius: 18px;
+            background: #ffffff;
+            border: 1px solid rgba(148,163,184,0.2);
+            box-shadow: 0 8px 24px rgba(15,23,42,0.04);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px rgba(15,23,42,0.1);
+        }
+
+        .pricing-featured {
+            border-color: var(--blue);
+            box-shadow: 0 12px 32px rgba(26,115,232,0.12);
+        }
+
+        .pricing-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 4px 14px;
+            border-radius: 999px;
+            background: linear-gradient(135deg, var(--blue), #2563eb);
+            color: #fff;
+            font-size: 11px;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .pricing-tag {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--blue);
+            margin-bottom: 6px;
+        }
+
+        .pricing-card h3 {
+            font-size: 18px;
+            color: var(--blue-dark);
+            margin-bottom: 8px;
+        }
+
+        .pricing-price {
+            font-size: 26px;
+            font-weight: 800;
+            color: var(--blue-dark);
+            margin-bottom: 12px;
+        }
+
+        .pricing-price span {
+            font-size: 13px;
+            font-weight: 400;
+            color: var(--muted);
+        }
+
+        .pricing-card > p {
+            font-size: 13px;
+            color: var(--muted);
+            margin-bottom: 16px;
+            line-height: 1.5;
+        }
+
+        .pricing-features {
+            list-style: none;
+            font-size: 13px;
+            color: var(--muted);
+            margin-bottom: 20px;
+            flex: 1;
+        }
+
+        .pricing-features li {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+
+        .pricing-cta {
+            display: block;
+            text-align: center;
+            padding: 10px 18px;
+            border-radius: 999px;
+            border: 1px solid rgba(26,115,232,0.3);
+            color: var(--blue-dark);
+            font-size: 14px;
+            font-weight: 600;
+            background: rgba(26,115,232,0.06);
+            transition: all 0.3s ease;
+        }
+
+        .pricing-cta:hover {
+            background: rgba(26,115,232,0.12);
+            transform: translateY(-1px);
+        }
+
+        .pricing-cta.featured {
+            background: linear-gradient(135deg, var(--blue), #2563eb);
+            color: #fff;
+            border-color: transparent;
+            box-shadow: 0 8px 20px rgba(26,115,232,0.3);
+        }
+
+        .pricing-cta.featured:hover {
+            box-shadow: 0 12px 28px rgba(26,115,232,0.4);
+        }
+
+        /* ===== WAITLIST FORM ===== */
+        .waitlist-form {
+            max-width: 560px;
+            margin: 0 auto;
+        }
+
+        .waitlist-input-group {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .waitlist-input {
+            flex: 1;
+            min-width: 200px;
+            padding: 12px 16px;
+            border-radius: 999px;
+            border: 1px solid rgba(255,255,255,0.2);
+            background: rgba(255,255,255,0.1);
+            color: #fff;
+            font-size: 14px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .waitlist-input::placeholder {
+            color: rgba(255,255,255,0.5);
+        }
+
+        .waitlist-input:focus {
+            border-color: rgba(255,255,255,0.4);
+            background: rgba(255,255,255,0.15);
+        }
+
+        .waitlist-select {
+            padding: 12px 16px;
+            border-radius: 999px;
+            border: 1px solid rgba(255,255,255,0.2);
+            background: rgba(255,255,255,0.1);
+            color: #fff;
+            font-size: 13px;
+            outline: none;
+            cursor: pointer;
+        }
+
+        .waitlist-select option {
+            background: #1a3f6f;
+            color: #fff;
+        }
+
+        .waitlist-btn {
+            padding: 12px 24px;
+            white-space: nowrap;
+        }
+
+        /* ===== RESPONSIVE FIXES FOR NEW SECTIONS ===== */
+        @media (max-width: 880px) {
+            .sf-metrics-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .sf-perf-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .sf-features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .pricing-grid {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+                margin: 0 auto;
+            }
+
+            .credibility-logos {
+                gap: 20px;
+            }
+
+            .scalper-proof-line {
+                font-size: 13px;
+                padding: 8px 14px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .sf-metrics-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .sf-perf-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .sf-features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .waitlist-input-group {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .waitlist-input, .waitlist-select, .waitlist-btn {
+                border-radius: 12px;
+            }
+        }
     </style>
 </head>
 
@@ -1369,7 +1859,7 @@
                 <button class="nav-toggle" aria-label="Toggle navigation" onclick="toggleNav()">☰</button>
                 <ul id="nav-menu">
                     <li><a href="#products">Products</a></li>
-                    <li><a href="#signalforge">SignalForge</a></li>
+                    <li><a href="#signalforge" style="color:var(--blue);font-weight:700;"><span class="live-dot"></span>SignalForge</a></li>
                     <li><a href="#services">Services</a></li>
                     <li><a href="#process">Process</a></li>
                     <li><a href="#about">About</a></li>
@@ -1392,12 +1882,18 @@
                         <span class="badge-dot"></span>
                         <span data-i18n="hero_badge">Production-ready software & AI — delivered fast</span>
                     </div>
-                    <h1><span class="gradient-text" data-i18n="hero_title">We build practical, production-ready software and AI</span> <span data-i18n="hero_title_suffix">for real factories and real users.</span></h1>
+                    <h1><span class="gradient-text" data-i18n="hero_title">We build in 3 weeks what takes others 6 months.</span></h1>
                     <p class="hero-subtitle">
-                        <span data-i18n="hero_subtitle">End-to-end delivery (cloud or on‑prem) with AI-driven analytics, hosting, and support.</span>
-                        <strong data-i18n="hero_proof">SignalForge reached working conditions in 3 weeks.</strong>
-                        <span data-i18n="hero_speed">Full deliverables in</span> <strong>3–4 <span data-i18n="weeks">weeks</span></strong> <span data-i18n="hero_speed_suffix">for scoped, pilot‑to‑live outcomes.</span>
+                        Production-ready software, AI platforms & autonomous trading systems.
+                        End-to-end delivery (cloud or on‑prem) with hosting and support.
                     </p>
+
+                    <!-- ABOVE-FOLD PERFORMANCE LINE -->
+                    <a href="#signalforge" class="scalper-proof-line">
+                        <span class="proof-pulse"></span>
+                        <span><strong>Options Scalper: 10 consecutive wins. +₹31,106 in 45 minutes. 100% win rate.</strong></span>
+                        <span class="proof-arrow">See SignalForge →</span>
+                    </a>
 
                     <!-- Typing animation area -->
                     <div style="margin-bottom: 18px; font-size: 15px; color: var(--muted); min-height: 28px;">
@@ -1576,6 +2072,35 @@
             </div>
         </div>
 
+        <!-- CREDIBILITY BAR -->
+        <div class="credibility-bar">
+            <div class="container">
+                <p class="credibility-label">Our founder has built products & led engineering at</p>
+                <div class="credibility-logos">
+                    <div class="cred-logo">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10h18"/></svg>
+                        <span>Goldman Sachs</span>
+                    </div>
+                    <div class="cred-logo">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>
+                        <span>Dell EMC</span>
+                    </div>
+                    <div class="cred-logo">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 3v18"/><path d="M3 12h18"/></svg>
+                        <span>Cognizant</span>
+                    </div>
+                    <div class="cred-logo">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                        <span>Caterpillar</span>
+                    </div>
+                    <div class="cred-logo">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 6h16v12H4z"/><path d="M4 9h16"/><path d="M9 6v12"/></svg>
+                        <span>Barco</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- TECH TRUST BAR -->
         <div class="trust-bar">
             <div class="container">
@@ -1654,268 +2179,244 @@
         </section>
 
         <!-- SIGNALFORGE FOCUS -->
-        <section id="signalforge">
+        <section id="signalforge" style="background:linear-gradient(180deg, #f0f4ff 0%, #f7f9fc 100%);">
             <div class="container">
                 <div class="section-heading reveal" data-reveal>
-                    <h2>AIStockAnalyst (SignalForge) · Business Value</h2>
-                    <p>
-                        Enterprise stock intelligence for faster, more consistent decision workflows.
+                    <div class="badge" style="margin:0 auto 16px;">
+                        <span class="badge-dot"></span>
+                        Live Platform · Currently Free
+                    </div>
+                    <h2 style="font-size:clamp(24px,3.5vw,36px);">SignalForge — AI-Powered Stock Intelligence</h2>
+                    <p style="max-width:640px;">
+                        13 microservices. 5 autonomous AI agents. 558 tests. Live autonomous trading.
+                        <br>Built in 3 weeks. Running in production on <a href="https://sf.thinkhivelabs.com/" target="_blank" rel="noopener noreferrer" style="color:var(--blue);font-weight:600;">sf.thinkhivelabs.com</a>
                     </p>
                 </div>
 
-                <div class="signalforge-section">
-                    <div class="signalforge-highlight reveal" data-reveal>
-                        <h3>Executive summary</h3>
-                        <p>
-                            SignalForge reduces decision latency, improves recommendation quality, and scales research throughput
-                            with a repeatable, explainable conviction model.
-                        </p>
-
-                        <p style="font-size:14px;color:var(--blue-dark);font-weight:600;margin-bottom:14px;">
-                            Delivery proof: SignalForge reached working conditions in <span style="font-weight:700;">3 weeks</span> — from scoped requirements to a usable, live platform.
-                        </p>
-
-                        <div class="pill-row">
-                            <span class="pill">Unified S.T.A.F.A scoring</span>
-                            <span class="pill">Microservices architecture</span>
-                            <span class="pill">Real-time + scheduled workflows</span>
-                            <span class="pill">Explainable recommendation trails</span>
-                        </div>
-
-                        <ul class="signalforge-list">
-                            <li>• Faster time-to-decision with automated gathering, scoring, and prioritization.</li>
-                            <li>• Higher decision consistency through transparent multi-factor interpretation.</li>
-                            <li>• Improved research throughput without proportional headcount growth.</li>
-                            <li>• Better stakeholder trust through explainable, defensible recommendations.</li>
-                        </ul>
-
-                        <a href="https://sf.thinkhivelabs.com/" target="_blank" rel="noopener noreferrer" class="btn-primary">Login & start using SignalForge →</a>
+                <!-- SIGNALFORGE METRICS GRID -->
+                <div class="sf-metrics-grid reveal" data-reveal>
+                    <div class="sf-metric-card">
+                        <span class="sf-metric-number counter-value" data-target="13" data-suffix="">0</span>
+                        <span class="sf-metric-label">Microservices</span>
+                        <span class="sf-metric-sub">Independently deployable, health-checked</span>
                     </div>
-
-                    <aside class="signalforge-sidecard reveal" data-reveal>
-                        <h4>Commercial status & adoption path</h4>
-                        <p>
-                            SignalForge is currently free to use for early adopters while teams validate KPI impact.
-                            The deployment model supports local and containerized rollouts with cloud-ready guidance.
-                        </p>
-
-                        <p style="margin-top:10px;">
-                            Need something similar for your domain? We build end-to-end software solutions —
-                            <strong>cloud or on-prem</strong> — with smart AI-driven analytics, secure hosting, and ongoing support.
-                            Typical delivery for a working, deployable scope is <strong>3–4 weeks</strong>.
-                        </p>
-
-                        <div class="signalforge-price">
-                            3 phases<span style="font-size:13px;font-weight:400;"> · Pilot → Controlled scale → Full ops</span>
-                        </div>
-
-                        <img class="section-visual" style="max-width:100%;margin:12px 0 8px;" src="assets/images/signalforge-integration.svg" alt="SignalForge broker integration for real trades">
-
-                        <div style="margin-top:8px;">
-                            • Phase 1 (3 weeks): Product ready — symbol subset, baseline KPIs, live deployment<br>
-                            • Phase 2 (Week 4): Real trades — integrate broker platform, order/position workflows, alerts<br>
-                            • Phase 3 (ongoing): Governance, release cycles, and cost optimization
-                        </div>
-
-                        <div style="margin-top:12px;font-size:12px;">
-                            Focus KPIs: cycle efficiency, signal quality, cost/productivity, and platform reliability.
-                            <br>
-                            Login URL: <a href="https://sf.thinkhivelabs.com/" target="_blank" rel="noopener noreferrer" style="color:var(--blue);font-weight:600;">https://sf.thinkhivelabs.com/</a>
-                        </div>
-                    </aside>
+                    <div class="sf-metric-card">
+                        <span class="sf-metric-number counter-value" data-target="5" data-suffix="">0</span>
+                        <span class="sf-metric-label">AI Agents</span>
+                        <span class="sf-metric-sub">Scanner, Screener, Risk, Execution, Reflection</span>
+                    </div>
+                    <div class="sf-metric-card">
+                        <span class="sf-metric-number counter-value" data-target="558" data-suffix="">0</span>
+                        <span class="sf-metric-label">Tests</span>
+                        <span class="sf-metric-sub">Across 32 test files, CI/CD on every push</span>
+                    </div>
+                    <div class="sf-metric-card">
+                        <span class="sf-metric-number counter-value" data-target="103" data-suffix="">0</span>
+                        <span class="sf-metric-label">NSE Stocks</span>
+                        <span class="sf-metric-sub">Nifty Next 50 + Midcap, sector-enriched</span>
+                    </div>
+                    <div class="sf-metric-card">
+                        <span class="sf-metric-number">52,600+</span>
+                        <span class="sf-metric-label">Lines of Code</span>
+                        <span class="sf-metric-sub">Python + React, production-grade</span>
+                    </div>
+                    <div class="sf-metric-card">
+                        <span class="sf-metric-number counter-value" data-target="25" data-suffix="">0</span>
+                        <span class="sf-metric-label">Frontend Pages</span>
+                        <span class="sf-metric-sub">Dashboard, Portfolio, Agent, Options, Admin</span>
+                    </div>
                 </div>
 
-                <img class="section-visual reveal enterprise-kpi" data-reveal src="assets/images/enterprise-kpi.svg" alt="KPI impact snapshot">
-
-                <div class="enterprise-grid">
-                    <div class="enterprise-block reveal" data-reveal>
-                        <div class="insight-head">
-                            <span class="insight-icon" aria-hidden="true">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                                    <path d="M9 11h6" />
-                                    <path d="M9 15h4" />
-                                </svg>
-                            </span>
-                            <h4>Business problem addressed</h4>
-                        </div>
-                        <ul class="insight-list">
-                            <li>• Fragmented data + signals across tools</li>
-                            <li>• Slow cycles → missed timing</li>
-                            <li>• Inconsistent interpretation across analysts</li>
-                            <li>• Manual research limits coverage</li>
-                        </ul>
+                <!-- LIVE PERFORMANCE WIDGET -->
+                <div class="sf-performance reveal" data-reveal>
+                    <div class="sf-perf-header">
+                        <span class="live-dot"></span>
+                        <h3>Live Performance Snapshot</h3>
+                        <span class="sf-perf-updated">Updated daily from production</span>
                     </div>
-
-                    <div class="enterprise-block reveal" data-reveal>
-                        <div class="insight-head">
-                            <span class="insight-icon alt" aria-hidden="true">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M3 3v18h18" />
-                                    <path d="M7 14l3-3 3 3 5-6" />
-                                </svg>
-                            </span>
-                            <h4>Quantifiable benefit areas</h4>
+                    <div class="sf-perf-grid">
+                        <div class="sf-perf-card sf-perf-highlight">
+                            <span class="sf-perf-value" style="color:#22c55e;">+₹31,106</span>
+                            <span class="sf-perf-label">Options Scalper P&L (single session)</span>
+                            <span class="sf-perf-detail">10 consecutive wins · 45 minutes · 100% win rate</span>
                         </div>
-                        <ul class="insight-list">
-                            <li>• Cycle efficiency: lead time, scan completion</li>
-                            <li>• Signal quality: directional accuracy, false positives</li>
-                            <li>• Productivity: hours saved, cost per symbol</li>
-                            <li>• Reliability: uptime, freshness SLA, rollbacks</li>
-                        </ul>
-                    </div>
-
-                    <div class="enterprise-block reveal" data-reveal>
-                        <div class="insight-head">
-                            <span class="insight-icon" aria-hidden="true">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M12 1v22" />
-                                    <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7H14a3.5 3.5 0 0 1 0 7H6" />
-                                </svg>
-                            </span>
-                            <h4>Illustrative ROI model</h4>
+                        <div class="sf-perf-card">
+                            <span class="sf-perf-value">100%</span>
+                            <span class="sf-perf-label">Options Win Rate</span>
+                            <span class="sf-perf-detail">Nifty weekly options momentum scalping</span>
                         </div>
-                        <div class="roi-box">
-                            <div class="roi-eq">Annual Net Value = (Productivity Savings + Decision Uplift + Risk Avoidance) − Platform Cost</div>
-                            <div class="roi-sub">Even small gains compound across weekly market cycles and wider symbol coverage.</div>
+                        <div class="sf-perf-card">
+                            <span class="sf-perf-value">5-Factor</span>
+                            <span class="sf-perf-label">S.T.M.F.A Scoring</span>
+                            <span class="sf-perf-detail">Sentiment · Technical · Momentum · Fundamental · Analyst</span>
+                        </div>
+                        <div class="sf-perf-card">
+                            <span class="sf-perf-value">24/5</span>
+                            <span class="sf-perf-label">Autonomous Operation</span>
+                            <span class="sf-perf-detail">Self-learning RL loop, no human intervention</span>
                         </div>
                     </div>
+                </div>
 
-                    <div class="enterprise-block reveal" data-reveal>
-                        <div class="insight-head">
-                            <span class="insight-icon alt" aria-hidden="true">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                                    <path d="M9 12l2 2 4-5" />
-                                </svg>
-                            </span>
-                            <h4>Risks and mitigations</h4>
+                <!-- WHAT'S INSIDE -->
+                <div class="sf-features-grid reveal" data-reveal>
+                    <div class="sf-feature-card">
+                        <div class="sf-feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4"/><path d="M12 18v4"/><path d="M4.93 4.93l2.83 2.83"/><path d="M16.24 16.24l2.83 2.83"/><path d="M2 12h4"/><path d="M18 12h4"/><circle cx="12" cy="12" r="4"/></svg>
                         </div>
-                        <ul class="insight-list">
-                            <li>• Data dependency: redundancy + freshness checks</li>
-                            <li>• Model drift: monitoring + threshold reviews</li>
-                            <li>• Adoption friction: transparent scoring + onboarding</li>
-                            <li>• Ops complexity: observability + runbooks</li>
-                        </ul>
+                        <h4>Agentic AI Orchestrator</h4>
+                        <p>ReAct-style 5-agent system: Scanner, Screener, Risk, Execution, Reflection. Reinforcement learning adjusts parameters after every 3 trades.</p>
                     </div>
+                    <div class="sf-feature-card">
+                        <div class="sf-feature-icon alt">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 14l3-3 3 3 5-6"/></svg>
+                        </div>
+                        <h4>Nifty Options Scalper</h4>
+                        <p>Momentum-first Nifty weekly options trading. UCB Bandit self-learning, Greeks-filtered, paper + live Dhan auto-trade. 8 trades/day max.</p>
+                    </div>
+                    <div class="sf-feature-card">
+                        <div class="sf-feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-5"/></svg>
+                        </div>
+                        <h4>6-Gate Risk Framework</h4>
+                        <p>Time gate, cooldown, feedback, conviction, loss cap, drawdown floor. Every trade passes through 6 sequential safety gates before execution.</p>
+                    </div>
+                    <div class="sf-feature-card">
+                        <div class="sf-feature-icon alt">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10H7z"/><path d="M4 12h3"/><path d="M17 12h3"/><path d="M12 4v3"/><path d="M12 17v3"/></svg>
+                        </div>
+                        <h4>9 Data Crawlers</h4>
+                        <p>ValuePickr, TradingView, Reddit, Moneycontrol, Screener, TickerTape, Trendlyne, 5paisa, GlobalMarket. NLP sentiment + deduplication.</p>
+                    </div>
+                    <div class="sf-feature-card">
+                        <div class="sf-feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>
+                        </div>
+                        <h4>25-Page React Dashboard</h4>
+                        <p>Portfolio, Agent monitoring, Options chain, Trade reports, Watchlists, Alerts, Admin panels. Dark/light mode, Google SSO.</p>
+                    </div>
+                    <div class="sf-feature-card">
+                        <div class="sf-feature-icon alt">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1v22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7H14a3.5 3.5 0 0 1 0 7H6"/></svg>
+                        </div>
+                        <h4>Autonomous Intraday Agent</h4>
+                        <p>Trades 9:20 AM–3:15 PM IST, max 5 positions, ₹2,500 risk cap/trade. Trailing SL, auto square-off at 3:10 PM. Zero human intervention.</p>
+                    </div>
+                </div>
+
+                <div style="text-align:center;margin-top:32px;" class="reveal" data-reveal>
+                    <a href="https://sf.thinkhivelabs.com/" target="_blank" rel="noopener noreferrer" class="btn-primary glow" style="font-size:16px;padding:14px 28px;">
+                        <span class="live-dot"></span> Try SignalForge Free →
+                    </a>
+                    <p style="font-size:13px;color:var(--muted);margin-top:10px;">Currently free for early adopters · No credit card required</p>
                 </div>
             </div>
         </section>
 
-        <!-- SERVICES -->
+        <!-- WAITLIST / EARLY ACCESS -->
+        <section id="waitlist" style="background:linear-gradient(135deg, #0b2c53 0%, #1a3f6f 50%, #0b2c53 100%);color:#fff;padding:48px 0;">
+            <div class="container" style="text-align:center;max-width:640px;">
+                <h2 class="reveal" data-reveal style="color:#fff;font-size:clamp(22px,3vw,30px);margin-bottom:10px;">Get Early Access to SignalForge</h2>
+                <p class="reveal" data-reveal style="color:rgba(255,255,255,0.7);margin-bottom:24px;font-size:15px;">
+                    We're onboarding traders and advisory teams in controlled batches.
+                    Join the waitlist — we'll reach out with your login within 48 hours.
+                </p>
+                <form class="waitlist-form reveal" data-reveal onsubmit="handleWaitlist(event)">
+                    <div class="waitlist-input-group">
+                        <input type="email" id="waitlistEmail" placeholder="Enter your email" required autocomplete="email" class="waitlist-input">
+                        <select id="waitlistRole" class="waitlist-select">
+                            <option value="trader">Individual Trader</option>
+                            <option value="advisory">Advisory Team</option>
+                            <option value="cto">CTO / Tech Leader</option>
+                            <option value="curious">Just Curious</option>
+                        </select>
+                        <button type="submit" class="btn-primary waitlist-btn">Join Waitlist →</button>
+                    </div>
+                    <p id="waitlistMsg" style="margin-top:12px;font-size:13px;color:rgba(255,255,255,0.8);display:none;"></p>
+                </form>
+                <p class="reveal" data-reveal style="font-size:12px;color:rgba(255,255,255,0.5);margin-top:16px;">No spam. Unsubscribe anytime. Currently free during early access.</p>
+            </div>
+        </section>
+
+        <!-- SERVICES / PRICING -->
         <section id="services">
             <div class="container">
                 <div class="section-heading reveal" data-reveal>
-                    <h2>Engineering & AI Services</h2>
+                    <h2>Packages & Pricing</h2>
                     <p>
-                        Beyond products, ThinkHive Labs acts as an engineering partner to design, build and ship
-                        robust solutions that fit your environment — with a delivery model optimized for speed and production reliability.
+                        Clear deliverables, fixed timelines, production-grade output.
+                        Every package includes architecture, code, deployment, and documentation.
                     </p>
-                    <img class="section-visual reveal" data-reveal src="assets/images/services-stack.svg" alt="Engineering and AI services stack">
                 </div>
 
-                <div class="service-grid">
-                    <div class="card service-card reveal" data-reveal>
-                        <div class="card-title-row">
-                            <span class="title-icon" aria-hidden="true">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M7 7h10v10H7z" />
-                                    <path d="M4 12h3" />
-                                    <path d="M17 12h3" />
-                                    <path d="M12 4v3" />
-                                    <path d="M12 17v3" />
-                                </svg>
-                            </span>
-                            <h3>AI & ML Engineering</h3>
-                        </div>
-                        <p>From model selection to deployment pipelines, we build AI that survives production.</p>
-                        <ul>
-                            <li>• Time-series & anomaly detection</li>
-                            <li>• Computer vision & edge inference</li>
-                            <li>• RAG & LLM-based assistants</li>
+                <div class="pricing-grid">
+                    <div class="pricing-card reveal" data-reveal>
+                        <div class="pricing-tag">Starter</div>
+                        <h3>AI Proof of Concept</h3>
+                        <div class="pricing-price">₹2,50,000 <span>/ 2 weeks</span></div>
+                        <p>Validate an AI idea with a working prototype. Ideal for founders and product teams exploring feasibility.</p>
+                        <ul class="pricing-features">
+                            <li><span class="check-dot"></span> Problem scoping & data audit</li>
+                            <li><span class="check-dot"></span> Working AI/ML prototype</li>
+                            <li><span class="check-dot"></span> Basic UI or API endpoint</li>
+                            <li><span class="check-dot"></span> Technical feasibility report</li>
+                            <li><span class="check-dot"></span> Docker-ready deployment</li>
                         </ul>
+                        <a href="#contact" class="pricing-cta">Start a PoC →</a>
                     </div>
 
-                    <div class="card service-card reveal" data-reveal>
-                        <div class="card-title-row">
-                            <span class="title-icon alt" aria-hidden="true">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M4 6h16v12H4z" />
-                                    <path d="M9 18v2h6v-2" />
-                                    <path d="M8 10h8" />
-                                </svg>
-                            </span>
-                            <h3>Product & App Development</h3>
-                        </div>
-                        <p>End-to-end product engineering with clean architecture and maintainable code.</p>
-                        <ul>
-                            <li>• Web & mobile apps</li>
-                            <li>• Python, .NET, Qt/QML, React</li>
-                            <li>• Testing, automation & observability</li>
+                    <div class="pricing-card pricing-featured reveal" data-reveal>
+                        <div class="pricing-badge">Most Popular</div>
+                        <div class="pricing-tag">Growth</div>
+                        <h3>Full Product Sprint</h3>
+                        <div class="pricing-price">₹5,00,000 <span>/ 3–4 weeks</span></div>
+                        <p>End-to-end product build — backend, frontend, AI, deployment. Like how SignalForge was built.</p>
+                        <ul class="pricing-features">
+                            <li><span class="check-dot"></span> Full-stack application (API + UI)</li>
+                            <li><span class="check-dot"></span> AI/ML integration & training</li>
+                            <li><span class="check-dot"></span> Cloud or on-prem deployment</li>
+                            <li><span class="check-dot"></span> CI/CD pipeline setup</li>
+                            <li><span class="check-dot"></span> 558+ test-level quality bar</li>
+                            <li><span class="check-dot"></span> 30 days post-launch support</li>
                         </ul>
+                        <a href="#contact" class="pricing-cta featured">Build My Product →</a>
                     </div>
 
-                    <div class="card service-card reveal" data-reveal>
-                        <div class="card-title-row">
-                            <span class="title-icon" aria-hidden="true">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M7 18a4 4 0 1 1 .8-7.92A5 5 0 0 1 20 12.5" />
-                                    <path d="M16 16h-1a3 3 0 0 1 0-6" />
-                                </svg>
-                            </span>
-                            <h3>Cloud & DevOps</h3>
-                        </div>
-                        <p>We design CI/CD, infrastructure-as-code and monitoring tailored to your stack.</p>
-                        <ul>
-                            <li>• Azure, AWS, GCP</li>
-                            <li>• Containers & orchestration</li>
-                            <li>• Secure deployment practices</li>
+                    <div class="pricing-card reveal" data-reveal>
+                        <div class="pricing-tag">Scale</div>
+                        <h3>Platform Engineering</h3>
+                        <div class="pricing-price">₹10,00,000 <span>/ 6–8 weeks</span></div>
+                        <p>Multi-service platforms with microservices, real-time data, and autonomous agents. Enterprise-grade.</p>
+                        <ul class="pricing-features">
+                            <li><span class="check-dot"></span> Microservices architecture (10+)</li>
+                            <li><span class="check-dot"></span> Agentic AI / multi-model orchestration</li>
+                            <li><span class="check-dot"></span> Real-time data pipelines</li>
+                            <li><span class="check-dot"></span> Broker / API integrations</li>
+                            <li><span class="check-dot"></span> Admin dashboards & monitoring</li>
+                            <li><span class="check-dot"></span> 90 days post-launch support</li>
                         </ul>
+                        <a href="#contact" class="pricing-cta">Discuss Architecture →</a>
                     </div>
 
-                    <div class="card service-card reveal" data-reveal>
-                        <div class="card-title-row">
-                            <span class="title-icon alt" aria-hidden="true">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M12 2v4" />
-                                    <path d="M12 18v4" />
-                                    <path d="M4.93 4.93l2.83 2.83" />
-                                    <path d="M16.24 16.24l2.83 2.83" />
-                                    <path d="M2 12h4" />
-                                    <path d="M18 12h4" />
-                                    <path d="M4.93 19.07l2.83-2.83" />
-                                    <path d="M16.24 7.76l2.83-2.83" />
-                                    <circle cx="12" cy="12" r="4" />
-                                </svg>
-                            </span>
-                            <h3>3–4 Week Delivery Sprints</h3>
-                        </div>
-                        <p>From scoped requirements to a working release — fast, disciplined, and production-minded.</p>
-                        <ul>
-                            <li>• Full deliverable solution (app + backend + infra)</li>
-                            <li>• Cloud or on-prem deployment options</li>
-                            <li>• Support, hosting, and live runbooks</li>
+                    <div class="pricing-card reveal" data-reveal>
+                        <div class="pricing-tag">Retain</div>
+                        <h3>Ongoing CTO-as-a-Service</h3>
+                        <div class="pricing-price">₹1,50,000 <span>/ month</span></div>
+                        <p>Fractional technical leadership for startups. Architecture reviews, team guidance, AI strategy, and hands-on support.</p>
+                        <ul class="pricing-features">
+                            <li><span class="check-dot"></span> Weekly architecture reviews</li>
+                            <li><span class="check-dot"></span> AI/ML strategy & roadmap</li>
+                            <li><span class="check-dot"></span> Code reviews & best practices</li>
+                            <li><span class="check-dot"></span> Infra optimization</li>
+                            <li><span class="check-dot"></span> On-call escalation support</li>
                         </ul>
-                    </div>
-
-                    <div class="card service-card reveal" data-reveal>
-                        <div class="card-title-row">
-                            <span class="title-icon" aria-hidden="true">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M4 20V10l8-6 8 6v10" />
-                                    <path d="M9 20v-6h6v6" />
-                                </svg>
-                            </span>
-                            <h3>Industrial & Edge Systems</h3>
-                        </div>
-                        <p>Experience working with PLCs, sensor stacks and high-availability shop-floor systems.</p>
-                        <ul>
-                            <li>• PLC / OPC UA integration</li>
-                            <li>• Edge gateways & data pipelines</li>
-                            <li>• Operator dashboards & HMIs</li>
-                        </ul>
+                        <a href="#contact" class="pricing-cta">Start Retainer →</a>
                     </div>
                 </div>
+
+                <p class="reveal" data-reveal style="text-align:center;font-size:13px;color:var(--muted);margin-top:20px;">
+                    All prices in INR. Custom scoping available. GST additional. International clients: USD pricing on request.
+                </p>
             </div>
         </section>
 
@@ -2064,8 +2565,9 @@
             <div>© <span id="year"></span> ThinkHive Labs. All rights reserved.</div>
             <div class="footer-links">
                 <a href="#products">Products</a>
-                <a href="#services">Services</a>
                 <a href="#signalforge">SignalForge</a>
+                <a href="#services">Pricing</a>
+                <a href="#waitlist">Early Access</a>
                 <a href="#contact">Contact</a>
             </div>
         </div>
@@ -2442,6 +2944,27 @@
                 document.getElementById('langDropdown').classList.remove('open');
             }
         });
+
+        // ===== WAITLIST FORM HANDLER =====
+        function handleWaitlist(e) {
+            e.preventDefault();
+            const email = document.getElementById('waitlistEmail').value;
+            const role = document.getElementById('waitlistRole').value;
+            const msg = document.getElementById('waitlistMsg');
+
+            // For now, show confirmation (replace with actual API call later)
+            msg.style.display = 'block';
+            msg.style.color = '#22c55e';
+            msg.textContent = '\u2713 You\'re on the list! We\'ll reach out within 48 hours at ' + email;
+
+            // Log to console for now (replace with API endpoint)
+            console.log('Waitlist signup:', { email, role, timestamp: new Date().toISOString() });
+
+            // Optional: send to a simple backend or email service
+            // fetch('/api/waitlist', { method: 'POST', body: JSON.stringify({ email, role }) });
+
+            document.getElementById('waitlistEmail').value = '';
+        }
 
         // ===== AUTO-DETECT LANGUAGE =====
         (function autoDetectLanguage() {
