@@ -1787,6 +1787,115 @@
             white-space: nowrap;
         }
 
+
+        /* ===== STUDIO SECTION ===== */
+        .studio-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .studio-copy p {
+            font-size: 15px;
+            color: var(--muted);
+            line-height: 1.7;
+            margin-bottom: 12px;
+        }
+
+        .studio-points {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .studio-point {
+            display: flex;
+            gap: 18px;
+            align-items: flex-start;
+        }
+
+        .studio-num {
+            flex-shrink: 0;
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            background: rgba(26,115,232,0.08);
+            color: var(--blue);
+            font-weight: 800;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .studio-point h4 {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--blue-dark);
+            margin-bottom: 4px;
+        }
+
+        .studio-point p {
+            font-size: 13px;
+            color: var(--muted);
+            line-height: 1.5;
+        }
+
+        /* ===== FOUNDER SECTION ===== */
+        .founder-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .founder-quote {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--blue-dark);
+            line-height: 1.5;
+            border-left: 4px solid var(--blue);
+            padding-left: 20px;
+            margin-bottom: 24px;
+            font-style: italic;
+        }
+
+        .founder-bio p {
+            font-size: 14px;
+            color: var(--muted);
+            line-height: 1.7;
+            margin-bottom: 12px;
+        }
+
+        /* ===== FINAL CTA SECTION ===== */
+        .final-cta-section {
+            background: linear-gradient(135deg, #0b2c53 0%, #1a3f6f 50%, #0b2c53 100%);
+            color: #fff;
+            padding: 64px 0;
+            text-align: center;
+        }
+
+        .final-cta-section h2 {
+            color: #fff;
+            font-size: clamp(22px, 3vw, 32px);
+            margin-bottom: 12px;
+        }
+
+        .final-cta-section p {
+            color: rgba(255,255,255,0.7);
+            font-size: 15px;
+            margin-bottom: 24px;
+            max-width: 520px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .final-cta-section .btn-primary {
+            font-size: 16px;
+            padding: 14px 32px;
+        }
+
         /* ===== RESPONSIVE FIXES FOR NEW SECTIONS ===== */
         @media (max-width: 880px) {
             .sf-metrics-grid {
@@ -1809,6 +1918,14 @@
 
             .credibility-logos {
                 gap: 20px;
+            }
+
+            .studio-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .founder-grid {
+                grid-template-columns: 1fr;
             }
 
             .scalper-proof-line {
@@ -1858,10 +1975,10 @@
             <nav>
                 <button class="nav-toggle" aria-label="Toggle navigation" onclick="toggleNav()">☰</button>
                 <ul id="nav-menu">
-                    <li><a href="#products">Products</a></li>
+                    <li><a href="#products">Studio</a></li>
                     <li><a href="#signalforge" style="color:var(--blue);font-weight:700;"><span class="live-dot"></span>SignalForge</a></li>
                     <li><a href="#services">Services</a></li>
-                    <li><a href="#process">Process</a></li>
+                    
                     <li><a href="#about">About</a></li>
                     <li><a href="#contact">Contact</a></li>
                     <li><a href="https://sf.thinkhivelabs.com/" target="_blank" rel="noopener noreferrer"><span class="live-dot"></span>Login</a></li>
@@ -1880,29 +1997,23 @@
                 <div class="reveal" data-reveal>
                     <div class="badge">
                         <span class="badge-dot"></span>
-                        <span data-i18n="hero_badge">Production-ready software & AI — delivered fast</span>
+                        <span data-i18n="hero_badge">AI Product Studio</span>
                     </div>
-                    <h1><span class="gradient-text" data-i18n="hero_title">We build in 3 weeks what takes others 6 months.</span></h1>
+                    <h1><span class="gradient-text" data-i18n="hero_title">We build AI products. From idea to production.</span></h1>
                     <p class="hero-subtitle">
-                        Production-ready software, AI platforms & autonomous trading systems.
-                        End-to-end delivery (cloud or on‑prem) with hosting and support.
+                        ThinkHive Labs designs and ships production-grade AI software — full-stack apps, agentic workflows,
+                        and data-driven platforms. SignalForge is our live proof: a real platform with microservices, agents,
+                        and automated tests — built fast and running in production.
                     </p>
 
-                    <!-- ABOVE-FOLD PERFORMANCE LINE -->
-                    <a href="#signalforge" class="scalper-proof-line">
-                        <span class="proof-pulse"></span>
-                        <span><strong>Options Scalper: 10 consecutive wins. +₹31,106 in 45 minutes. 100% win rate.</strong></span>
-                        <span class="proof-arrow">See SignalForge →</span>
-                    </a>
-
-                    <!-- Typing animation area -->
+                                        <!-- Typing animation area -->
                     <div style="margin-bottom: 18px; font-size: 15px; color: var(--muted); min-height: 28px;">
                         <span data-i18n="we_deliver">We deliver:</span> <span class="typing-wrapper"><span class="typing-text" id="typingText"></span></span>
                     </div>
 
                     <div class="hero-actions">
-                        <a href="https://sf.thinkhivelabs.com/" target="_blank" rel="noopener noreferrer" class="btn-primary glow"><span class="live-dot"></span> <span data-i18n="cta_login">Login & Start Using SignalForge</span> &nbsp;→</a>
-                        <a href="#contact" class="btn-ghost" data-i18n="cta_talk">Talk about your use case</a>
+                        <a href="#contact" class="btn-primary glow"><span data-i18n="cta_login">Start a build sprint</span> &nbsp;→</a>
+                        <a href="#signalforge" class="btn-ghost" data-i18n="cta_talk">Explore SignalForge</a>
                     </div>
 
                     <div class="icon-strip reveal" data-reveal>
@@ -2102,31 +2213,16 @@
             </div>
         </div>
 
-        <!-- CREDIBILITY BAR -->
+        <!-- PROOF BAR -->
         <div class="credibility-bar">
             <div class="container">
-                <p class="credibility-label">Our founder has built products & led engineering at</p>
+                <p class="credibility-label">Experience across</p>
                 <div class="credibility-logos">
-                    <div class="cred-logo">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10h18"/></svg>
-                        <span>Goldman Sachs</span>
-                    </div>
-                    <div class="cred-logo">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>
-                        <span>Dell EMC</span>
-                    </div>
-                    <div class="cred-logo">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 3v18"/><path d="M3 12h18"/></svg>
-                        <span>Cognizant</span>
-                    </div>
-                    <div class="cred-logo">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-                        <span>Caterpillar</span>
-                    </div>
-                    <div class="cred-logo">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 6h16v12H4z"/><path d="M4 9h16"/><path d="M9 6v12"/></svg>
-                        <span>Barco</span>
-                    </div>
+                    <div class="cred-logo"><span>FinTech</span></div>
+                    <div class="cred-logo"><span>Enterprise</span></div>
+                    <div class="cred-logo"><span>Industrial AI</span></div>
+                    <div class="cred-logo"><span>Edge Systems</span></div>
+                    <div class="cred-logo"><span>Visualization</span></div>
                 </div>
             </div>
         </div>
@@ -2149,66 +2245,92 @@
             </div>
         </div>
 
-        <!-- PRODUCTS -->
+        <!-- STUDIO OVERVIEW -->
         <section id="products">
             <div class="container">
                 <div class="section-heading reveal" data-reveal>
-                    <h2>Products from ThinkHive Labs</h2>
+                    <h2>A studio that ships production — not prototypes</h2>
                     <p>
-                        Product-grade builds with AI/ML and real deployment experience.
-                        If you need a full deliverable, our sprint model targets <strong>3–4 weeks</strong> from scope to working release.
+                        Most AI teams stop at a demo. We deliver a working system: architecture, automated testing,
+                        deployment, monitoring, and operating discipline — the same standards we apply to our own products.
                     </p>
-                    <img class="section-visual reveal" data-reveal src="assets/images/delivery-sprint.svg" alt="3–4 week delivery sprint timeline">
                 </div>
 
-                <div class="product-grid">
-                    <div class="card reveal" data-reveal>
-                        <img class="card-illustration" src="assets/images/product-fintech.svg" alt="SignalForge stock intelligence illustration">
-                        <div class="card-tag">FinTech · AI Intelligence</div>
-                        <h3>AIStockAnalyst (SignalForge)</h3>
-                        <p>
-                            Enterprise-grade stock intelligence to improve decision speed, quality, and consistency.
-                        </p>
-                        <ul>
-                            <li>• Unified conviction score via S.T.A.F.A framework</li>
-                            <li>• Real-time and scheduled processing for market coverage</li>
-                            <li>• Explainable signals for governance and client trust</li>
-                        </ul>
-                        <a href="#signalforge" class="card-link">Read business value brief →</a>
+                <div class="studio-grid">
+                    <div class="studio-copy reveal" data-reveal>
+                        <div class="studio-points">
+                            <div class="studio-point">
+                                <div class="studio-num">1</div>
+                                <div>
+                                    <h4>We build and operate our own products</h4>
+                                    <p>SignalForge is our live AI stock intelligence platform for Indian markets. Built with a modular architecture and deployed for real use.</p>
+                                </div>
+                            </div>
+                            <div class="studio-point">
+                                <div class="studio-num">2</div>
+                                <div>
+                                    <h4>We build client products to the same bar</h4>
+                                    <p>Every engagement results in a deployable system — clear scope, automated tests, clean architecture, and production readiness.</p>
+                                </div>
+                            </div>
+                            <div class="studio-point">
+                                <div class="studio-num">3</div>
+                                <div>
+                                    <h4>3–4 weeks to a working v1</h4>
+                                    <p>Focused scope and disciplined delivery mean you see progress weekly and a usable version of your minimum viable product within a sprint.</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="card reveal" data-reveal>
-                        <img class="card-illustration" src="assets/images/product-industrial.svg" alt="Industrial edge intelligence illustration">
-                        <div class="card-tag">Industrial · Edge AI</div>
-                        <h3>Industrial Intelligence Stack</h3>
-                        <p>
-                            Edge-to-cloud intelligence for predictive maintenance and anomaly detection.
-                        </p>
-                        <ul>
-                            <li>• Sensor & PLC connectivity</li>
-                            <li>• Time-series analytics & anomaly detection</li>
-                            <li>• Dashboards for engineers & operators</li>
-                        </ul>
-                    </div>
+                    <aside class="hero-card reveal" data-reveal>
+                        <div class="hero-card-title" style="display:flex;align-items:center;gap:8px;">
+                            <span class="live-dot"></span>
+                            SignalForge
+                        </div>
+                        <div class="hero-card-pill">AI-Powered Stock Intelligence · Live on Production</div>
 
-                    <div class="card reveal" data-reveal>
-                        <img class="card-illustration" src="assets/images/product-workflow.svg" alt="AI workflow tools illustration">
-                        <div class="card-tag">Custom · AI & Tools</div>
-                        <h3>AI Assistant & Workflow Tools</h3>
-                        <p>
-                            Assistants, dashboards, and automations that plug into your existing tools and processes.
-                        </p>
+                        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:14px;">
+                            <div style="text-align:center;padding:8px 4px;background:rgba(37,99,235,0.05);border-radius:10px;">
+                                <strong style="display:block;font-size:18px;color:var(--blue-dark);">13</strong>
+                                <span style="font-size:10px;color:var(--muted);">Services</span>
+                            </div>
+                            <div style="text-align:center;padding:8px 4px;background:rgba(60,184,121,0.05);border-radius:10px;">
+                                <strong style="display:block;font-size:18px;color:var(--blue-dark);">5</strong>
+                                <span style="font-size:10px;color:var(--muted);">AI Agents</span>
+                            </div>
+                            <div style="text-align:center;padding:8px 4px;background:rgba(139,92,246,0.05);border-radius:10px;">
+                                <strong style="display:block;font-size:18px;color:var(--blue-dark);">558</strong>
+                                <span style="font-size:10px;color:var(--muted);">Tests</span>
+                            </div>
+                        </div>
+
                         <ul>
-                            <li>• RAG assistants on private data</li>
-                            <li>• Engineering & support copilots</li>
-                            <li>• Workflow automation & integration</li>
+                            <li><span class="check-dot"></span> 5-factor S.T.M.F.A conviction scoring (0–100%)</li>
+                            <li><span class="check-dot"></span> Autonomous intraday agent + Nifty options scalper</li>
+                            <li><span class="check-dot"></span> 6-gate risk framework · trailing SL · loss caps</li>
+                            <li><span class="check-dot"></span> Multi-source data crawlers across 15+ platforms</li>
+                            <li><span class="check-dot"></span> React dashboard · dark/light · Google SSO</li>
                         </ul>
-                    </div>
+
+                        <div style="display:flex;gap:8px;margin-top:14px;flex-wrap:wrap;">
+                            <a href="https://sf.thinkhivelabs.com/" target="_blank" rel="noopener noreferrer" class="btn-primary" style="font-size:13px;padding:8px 16px;flex:1;text-align:center;">
+                                Try Free →
+                            </a>
+                            <a href="#signalforge" class="btn-ghost" style="font-size:13px;padding:8px 16px;flex:1;text-align:center;">
+                                See Details
+                            </a>
+                        </div>
+
+                        <div class="hero-card-footer" style="margin-top:12px;">
+                            Built to production in <strong>3 weeks</strong> · Docker + DigitalOcean
+                        </div>
+                    </aside>
                 </div>
             </div>
         </section>
 
-        <!-- SIGNALFORGE FOCUS -->
+        <!-- SIGNALFORGE PLATFORM -->
         <section id="signalforge" style="background:linear-gradient(180deg, #f0f4ff 0%, #f7f9fc 100%);">
             <div class="container">
                 <div class="section-heading reveal" data-reveal>
@@ -2216,121 +2338,76 @@
                         <span class="badge-dot"></span>
                         Live Platform · Currently Free
                     </div>
-                    <h2 style="font-size:clamp(24px,3.5vw,36px);">SignalForge — AI-Powered Stock Intelligence</h2>
+                    <h2 style="font-size:clamp(24px,3.5vw,36px);">SignalForge — built fast. Engineered to run.</h2>
                     <p style="max-width:640px;">
-                        13 microservices. 5 autonomous AI agents. 558 tests. Live autonomous trading.
-                        <br>Built in 3 weeks. Running in production on <a href="https://sf.thinkhivelabs.com/" target="_blank" rel="noopener noreferrer" style="color:var(--blue);font-weight:600;">sf.thinkhivelabs.com</a>
+                        SignalForge is our AI-powered stock intelligence platform for Indian equity and derivatives markets.
+                        It blends technicals, sentiment, fundamentals, and machine learning into an explainable conviction score
+                        with optional automated workflows and safety controls.
                     </p>
                 </div>
 
-                <!-- SIGNALFORGE METRICS GRID -->
                 <div class="sf-metrics-grid reveal" data-reveal>
                     <div class="sf-metric-card">
                         <span class="sf-metric-number counter-value" data-target="13" data-suffix="">0</span>
-                        <span class="sf-metric-label">Microservices</span>
-                        <span class="sf-metric-sub">Independently deployable, health-checked</span>
+                        <span class="sf-metric-label">Services</span>
+                        <span class="sf-metric-sub">Modular, observable, scalable</span>
                     </div>
                     <div class="sf-metric-card">
                         <span class="sf-metric-number counter-value" data-target="5" data-suffix="">0</span>
-                        <span class="sf-metric-label">AI Agents</span>
-                        <span class="sf-metric-sub">Scanner, Screener, Risk, Execution, Reflection</span>
+                        <span class="sf-metric-label">Agents</span>
+                        <span class="sf-metric-sub">Orchestrated decision system</span>
                     </div>
                     <div class="sf-metric-card">
                         <span class="sf-metric-number counter-value" data-target="558" data-suffix="">0</span>
-                        <span class="sf-metric-label">Tests</span>
-                        <span class="sf-metric-sub">Across 32 test files, CI/CD on every push</span>
+                        <span class="sf-metric-label">Automated Tests</span>
+                        <span class="sf-metric-sub">Quality at scale</span>
                     </div>
                     <div class="sf-metric-card">
-                        <span class="sf-metric-number counter-value" data-target="103" data-suffix="">0</span>
-                        <span class="sf-metric-label">NSE Stocks</span>
-                        <span class="sf-metric-sub">Nifty Next 50 + Midcap, sector-enriched</span>
-                    </div>
-                    <div class="sf-metric-card">
-                        <span class="sf-metric-number">52,600+</span>
-                        <span class="sf-metric-label">Lines of Code</span>
-                        <span class="sf-metric-sub">Python + React, production-grade</span>
-                    </div>
-                    <div class="sf-metric-card">
-                        <span class="sf-metric-number counter-value" data-target="25" data-suffix="">0</span>
-                        <span class="sf-metric-label">Frontend Pages</span>
-                        <span class="sf-metric-sub">Dashboard, Portfolio, Agent, Options, Admin</span>
+                        <span class="sf-metric-number">3 wks</span>
+                        <span class="sf-metric-label">Time to v1</span>
+                        <span class="sf-metric-sub">Sprint-driven delivery</span>
                     </div>
                 </div>
 
-                <!-- LIVE PERFORMANCE WIDGET -->
-                <div class="sf-performance reveal" data-reveal>
-                    <div class="sf-perf-header">
-                        <span class="live-dot"></span>
-                        <h3>Live Performance Snapshot</h3>
-                        <span class="sf-perf-updated">Updated daily from production</span>
-                    </div>
-                    <div class="sf-perf-grid">
-                        <div class="sf-perf-card sf-perf-highlight">
-                            <span class="sf-perf-value" style="color:#22c55e;">+₹31,106</span>
-                            <span class="sf-perf-label">Options Scalper P&L (single session)</span>
-                            <span class="sf-perf-detail">10 consecutive wins · 45 minutes · 100% win rate</span>
-                        </div>
-                        <div class="sf-perf-card">
-                            <span class="sf-perf-value">100%</span>
-                            <span class="sf-perf-label">Options Win Rate</span>
-                            <span class="sf-perf-detail">Nifty weekly options momentum scalping</span>
-                        </div>
-                        <div class="sf-perf-card">
-                            <span class="sf-perf-value">5-Factor</span>
-                            <span class="sf-perf-label">S.T.M.F.A Scoring</span>
-                            <span class="sf-perf-detail">Sentiment · Technical · Momentum · Fundamental · Analyst</span>
-                        </div>
-                        <div class="sf-perf-card">
-                            <span class="sf-perf-value">24/5</span>
-                            <span class="sf-perf-label">Autonomous Operation</span>
-                            <span class="sf-perf-detail">Self-learning RL loop, no human intervention</span>
-                        </div>
-                    </div>
+                <div class="section-heading reveal" data-reveal style="margin-top:40px;">
+                    <h3 style="font-size:clamp(18px,2.5vw,24px);color:var(--blue-dark);">Under the Hood</h3>
                 </div>
 
-                <!-- WHAT'S INSIDE -->
                 <div class="sf-features-grid reveal" data-reveal>
                     <div class="sf-feature-card">
                         <div class="sf-feature-icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4"/><path d="M12 18v4"/><path d="M4.93 4.93l2.83 2.83"/><path d="M16.24 16.24l2.83 2.83"/><path d="M2 12h4"/><path d="M18 12h4"/><circle cx="12" cy="12" r="4"/></svg>
                         </div>
-                        <h4>Agentic AI Orchestrator</h4>
-                        <p>ReAct-style 5-agent system: Scanner, Screener, Risk, Execution, Reflection. Reinforcement learning adjusts parameters after every 3 trades.</p>
+                        <h4>ReAct AI Orchestrator</h4>
+                        <p>A 5-agent orchestrator (Scanner, Screener, Risk, Execution, Reflection) that manages continuous learning and decision flow.</p>
+                    </div>
+                    <div class="sf-feature-card">
+                        <div class="sf-feature-icon alt">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-5"/></svg>
+                        </div>
+                        <h4>6-Gate Risk Framework</h4>
+                        <p>Robust safety checks before execution: time, cooldown, feedback, conviction, loss cap, and drawdown floor.</p>
+                    </div>
+                    <div class="sf-feature-card">
+                        <div class="sf-feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10H7z"/><path d="M4 12h3"/><path d="M17 12h3"/><path d="M12 4v3"/><path d="M12 17v3"/></svg>
+                        </div>
+                        <h4>Live Multi-Source Crawlers</h4>
+                        <p>Data crawlers across multiple platforms for sentiment, fundamentals, and market context.</p>
                     </div>
                     <div class="sf-feature-card">
                         <div class="sf-feature-icon alt">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 14l3-3 3 3 5-6"/></svg>
                         </div>
-                        <h4>Nifty Options Scalper</h4>
-                        <p>Momentum-first Nifty weekly options trading. UCB Bandit self-learning, Greeks-filtered, paper + live Dhan auto-trade. 8 trades/day max.</p>
-                    </div>
-                    <div class="sf-feature-card">
-                        <div class="sf-feature-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-5"/></svg>
-                        </div>
-                        <h4>6-Gate Risk Framework</h4>
-                        <p>Time gate, cooldown, feedback, conviction, loss cap, drawdown floor. Every trade passes through 6 sequential safety gates before execution.</p>
-                    </div>
-                    <div class="sf-feature-card">
-                        <div class="sf-feature-icon alt">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10H7z"/><path d="M4 12h3"/><path d="M17 12h3"/><path d="M12 4v3"/><path d="M12 17v3"/></svg>
-                        </div>
-                        <h4>9 Data Crawlers</h4>
-                        <p>ValuePickr, TradingView, Reddit, Moneycontrol, Screener, TickerTape, Trendlyne, 5paisa, GlobalMarket. NLP sentiment + deduplication.</p>
+                        <h4>Multi-Factor Conviction Score</h4>
+                        <p>A transparent scoring model combining sentiment, technicals, momentum, fundamentals, and analyst signals.</p>
                     </div>
                     <div class="sf-feature-card">
                         <div class="sf-feature-icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>
                         </div>
-                        <h4>25-Page React Dashboard</h4>
-                        <p>Portfolio, Agent monitoring, Options chain, Trade reports, Watchlists, Alerts, Admin panels. Dark/light mode, Google SSO.</p>
-                    </div>
-                    <div class="sf-feature-card">
-                        <div class="sf-feature-icon alt">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1v22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7H14a3.5 3.5 0 0 1 0 7H6"/></svg>
-                        </div>
-                        <h4>Autonomous Intraday Agent</h4>
-                        <p>Trades 9:20 AM–3:15 PM IST, max 5 positions, ₹2,500 risk cap/trade. Trailing SL, auto square-off at 3:10 PM. Zero human intervention.</p>
+                        <h4>Optional Execution Automation</h4>
+                        <p>Support for workflow automation with risk controls and monitoring during market hours.</p>
                     </div>
                 </div>
 
@@ -2343,171 +2420,93 @@
             </div>
         </section>
 
-        <!-- WAITLIST / EARLY ACCESS -->
-        <section id="waitlist" style="background:linear-gradient(135deg, #0b2c53 0%, #1a3f6f 50%, #0b2c53 100%);color:#fff;padding:48px 0;">
-            <div class="container" style="text-align:center;max-width:640px;">
-                <h2 class="reveal" data-reveal style="color:#fff;font-size:clamp(22px,3vw,30px);margin-bottom:10px;">Get Early Access to SignalForge</h2>
-                <p class="reveal" data-reveal style="color:rgba(255,255,255,0.7);margin-bottom:24px;font-size:15px;">
-                    We're onboarding traders and advisory teams in controlled batches.
-                    Join the waitlist — we'll reach out with your login within 48 hours.
-                </p>
-                <form class="waitlist-form reveal" data-reveal onsubmit="handleWaitlist(event)">
-                    <div class="waitlist-input-group">
-                        <input type="email" id="waitlistEmail" placeholder="Enter your email" required autocomplete="email" class="waitlist-input">
-                        <select id="waitlistRole" class="waitlist-select">
-                            <option value="trader">Individual Trader</option>
-                            <option value="advisory">Advisory Team</option>
-                            <option value="cto">CTO / Tech Leader</option>
-                            <option value="curious">Just Curious</option>
-                        </select>
-                        <button type="submit" class="btn-primary waitlist-btn">Join Waitlist →</button>
-                    </div>
-                    <p id="waitlistMsg" style="margin-top:12px;font-size:13px;color:rgba(255,255,255,0.8);display:none;"></p>
-                </form>
-                <p class="reveal" data-reveal style="font-size:12px;color:rgba(255,255,255,0.5);margin-top:16px;">No spam. Unsubscribe anytime. Currently free during early access.</p>
-            </div>
-        </section>
-
-        <!-- SERVICES / PRICING -->
+        <!-- PACKAGES -->
         <section id="services">
             <div class="container">
                 <div class="section-heading reveal" data-reveal>
-                    <h2>Packages & Pricing</h2>
+                    <h2>Your product. Shipped.</h2>
                     <p>
-                        Clear deliverables, fixed timelines, production-grade output.
-                        Every package includes architecture, code, deployment, and documentation.
+                        Fixed scope and timeline, with production-ready delivery: working software, automated tests,
+                        deployment, and a clean handover.
                     </p>
                 </div>
 
                 <div class="pricing-grid">
                     <div class="pricing-card reveal" data-reveal>
-                        <div class="pricing-tag">Starter</div>
-                        <h3>AI Proof of Concept</h3>
-                        <div class="pricing-price">₹2,50,000 <span>/ 2 weeks</span></div>
-                        <p>Validate an AI idea with a working prototype. Ideal for founders and product teams exploring feasibility.</p>
+                        <div class="pricing-tag">🎯 Starter Sprint</div>
+                        <h3>Validate feasibility and ROI</h3>
+                        <div class="pricing-price">2 Weeks</div>
                         <ul class="pricing-features">
-                            <li><span class="check-dot"></span> Problem scoping & data audit</li>
-                            <li><span class="check-dot"></span> Working AI/ML prototype</li>
-                            <li><span class="check-dot"></span> Basic UI or API endpoint</li>
-                            <li><span class="check-dot"></span> Technical feasibility report</li>
-                            <li><span class="check-dot"></span> Docker-ready deployment</li>
+                            <li><span class="check-dot"></span> Problem scoping and data audit</li>
+                            <li><span class="check-dot"></span> Prototype with key flows</li>
+                            <li><span class="check-dot"></span> Dockerized demo deployment</li>
                         </ul>
+                        <p style="font-size:12px;color:var(--blue);font-weight:600;margin-top:auto;padding-top:12px;border-top:1px solid var(--border);">Deliverable: Research report + working prototype</p>
                         <a href="#contact" class="pricing-cta">Start a PoC →</a>
                     </div>
 
                     <div class="pricing-card pricing-featured reveal" data-reveal>
                         <div class="pricing-badge">Most Popular</div>
-                        <div class="pricing-tag">Growth</div>
-                        <h3>Full Product Sprint</h3>
-                        <div class="pricing-price">₹5,00,000 <span>/ 3–4 weeks</span></div>
-                        <p>End-to-end product build — backend, frontend, AI, deployment. Like how SignalForge was built.</p>
+                        <div class="pricing-tag">🚀 Growth Sprint</div>
+                        <h3>Full sprint to a usable v1</h3>
+                        <div class="pricing-price">3–4 Weeks</div>
                         <ul class="pricing-features">
-                            <li><span class="check-dot"></span> Full-stack application (API + UI)</li>
-                            <li><span class="check-dot"></span> AI/ML integration & training</li>
-                            <li><span class="check-dot"></span> Cloud or on-prem deployment</li>
-                            <li><span class="check-dot"></span> CI/CD pipeline setup</li>
-                            <li><span class="check-dot"></span> 558+ test-level quality bar</li>
-                            <li><span class="check-dot"></span> 30 days post-launch support</li>
+                            <li><span class="check-dot"></span> Architecture and API design</li>
+                            <li><span class="check-dot"></span> QA and automated testing</li>
+                            <li><span class="check-dot"></span> Deployable release with monitoring</li>
                         </ul>
+                        <p style="font-size:12px;color:var(--blue);font-weight:600;margin-top:auto;padding-top:12px;border-top:1px solid var(--border);">Deliverable: Production-ready v1</p>
                         <a href="#contact" class="pricing-cta featured">Build My Product →</a>
                     </div>
 
                     <div class="pricing-card reveal" data-reveal>
-                        <div class="pricing-tag">Scale</div>
-                        <h3>Platform Engineering</h3>
-                        <div class="pricing-price">₹10,00,000 <span>/ 6–8 weeks</span></div>
-                        <p>Multi-service platforms with microservices, real-time data, and autonomous agents. Enterprise-grade.</p>
+                        <div class="pricing-tag">📈 Scale / Enterprise</div>
+                        <h3>Scalable, monitored system</h3>
+                        <div class="pricing-price">Custom</div>
                         <ul class="pricing-features">
-                            <li><span class="check-dot"></span> Microservices architecture (10+)</li>
-                            <li><span class="check-dot"></span> Agentic AI / multi-model orchestration</li>
-                            <li><span class="check-dot"></span> Real-time data pipelines</li>
-                            <li><span class="check-dot"></span> Broker / API integrations</li>
-                            <li><span class="check-dot"></span> Admin dashboards & monitoring</li>
-                            <li><span class="check-dot"></span> 90 days post-launch support</li>
+                            <li><span class="check-dot"></span> Microservices architecture (10+) with observability</li>
+                            <li><span class="check-dot"></span> Real-time pipelines & ingestion</li>
+                            <li><span class="check-dot"></span> Documentation, ops, and scaling plan</li>
+                            <li><span class="check-dot"></span> Optional cloud/on-prem delivery</li>
                         </ul>
+                        <p style="font-size:12px;color:var(--blue);font-weight:600;margin-top:auto;padding-top:12px;border-top:1px solid var(--border);">Deliverable: Scalable, monitored system</p>
                         <a href="#contact" class="pricing-cta">Discuss Architecture →</a>
                     </div>
 
                     <div class="pricing-card reveal" data-reveal>
-                        <div class="pricing-tag">Retain</div>
-                        <h3>Ongoing CTO-as-a-Service</h3>
-                        <div class="pricing-price">₹1,50,000 <span>/ month</span></div>
-                        <p>Fractional technical leadership for startups. Architecture reviews, team guidance, AI strategy, and hands-on support.</p>
+                        <div class="pricing-tag">🤝 CTO as a Service</div>
+                        <h3>Ongoing technical leadership</h3>
+                        <div class="pricing-price">Monthly</div>
                         <ul class="pricing-features">
-                            <li><span class="check-dot"></span> Weekly architecture reviews</li>
-                            <li><span class="check-dot"></span> AI/ML strategy & roadmap</li>
-                            <li><span class="check-dot"></span> Code reviews & best practices</li>
-                            <li><span class="check-dot"></span> Infra optimization</li>
-                            <li><span class="check-dot"></span> On-call escalation support</li>
+                            <li><span class="check-dot"></span> Architecture reviews and roadmap</li>
+                            <li><span class="check-dot"></span> Hiring support & technical interviews</li>
+                            <li><span class="check-dot"></span> Code quality and delivery oversight</li>
                         </ul>
                         <a href="#contact" class="pricing-cta">Start Retainer →</a>
                     </div>
                 </div>
-
-                <p class="reveal" data-reveal style="text-align:center;font-size:13px;color:var(--muted);margin-top:20px;">
-                    All prices in INR. Custom scoping available. GST additional. International clients: USD pricing on request.
-                </p>
             </div>
         </section>
 
-        <!-- PROCESS -->
-        <section id="process">
-            <div class="container">
-                <div class="section-heading reveal" data-reveal>
-                    <h2>How we work with you</h2>
-                    <p>A simple, transparent process that fits both product builds and targeted consulting work — optimized for 3–4 week deliverables.</p>
-                    <img class="section-visual reveal" data-reveal src="assets/images/process-flow.svg" alt="Delivery process flow">
-                </div>
-
-                <div class="process-steps">
-                    <div class="step reveal" data-reveal>
-                        <div class="step-title">1 · Discovery & scoping</div>
-                        We map your goals, constraints, existing systems and success metrics into a clear, written
-                        brief.
-                    </div>
-                    <div class="step reveal" data-reveal>
-                        <div class="step-title">2 · Architecture & design</div>
-                        High-level design, data flow and component choices that balance risk, time-to-market and cost.
-                    </div>
-                    <div class="step reveal" data-reveal>
-                        <div class="step-title">3 · Build & validate</div>
-                        Iterative implementation with demos, test harnesses and clear visibility into progress — targeting a working release within 3–4 weeks.
-                    </div>
-                    <div class="step reveal" data-reveal>
-                        <div class="step-title">4 · Deploy & evolve</div>
-                        Production rollout (cloud or on-prem), monitoring, support handover, and continuous refinement based on real-world feedback.
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ABOUT + CONTACT -->
+        <!-- FOUNDER -->
         <section id="about">
             <div class="container">
                 <div class="section-heading reveal" data-reveal>
-                    <h2 data-i18n="about_title">About ThinkHive Labs</h2>
-                    <p data-i18n="about_subtitle">ThinkHive Labs is led by experienced engineering leadership with hands-on product and AI
-                        background.</p>
+                    <h2 data-i18n="about_title">About the Founder</h2>
                 </div>
 
-                <div class="two-col">
-                    <div class="reveal" data-reveal>
-                        <p style="font-size:14px;color:var(--muted);margin-bottom:12px;">
-                            Founder &amp; CEO of ThinkHive Labs, and an AI Product Architect with 22+ years of experience
-                            designing and delivering enterprise-scale platforms across Industrial AI, semiconductors,
-                            finance, and cloud‑native ecosystems.
+                <div class="founder-grid">
+                    <div class="founder-bio reveal" data-reveal>
+                        <blockquote class="founder-quote">
+                            “I care about one thing: shipping systems that run in the real world — fast, measurable, and maintainable.”
+                        </blockquote>
+                        <p>
+                            Founder &amp; CEO, ThinkHive Labs. 22+ years building enterprise platforms across fintech and
+                            industrial systems — with a hands-on focus on agentic AI, RAG, and secure deployable architectures.
                         </p>
-                        <p style="font-size:14px;color:var(--muted);margin-bottom:12px;">
-                            Hands-on leader in designing and deploying AI-powered products using frontier models
-                            including Claude (Anthropic), Gemini (Google), and GPT-based systems. Proven experience
-                            building RAG platforms, agentic AI systems, and secure on-prem AI assistants in air-gapped
-                            environments.
-                        </p>
-                        <p style="font-size:14px;color:var(--muted);">
-                            Expert in architecting multi-agent orchestration systems using CrewAI, LangGraph,
-                            structured toolchains, and intelligent workflow engines. Strong capability in translating
-                            AI PoCs into production-grade platforms with governance, RBAC, observability, and
-                            cost-aware deployment models — with a focus on shipping working systems fast (often in <strong>3–4 week</strong> cycles).
+                        <p>
+                            Our sprint model is how we work: defined scope, weekly demos, clean engineering, and a shippable
+                            release — the same approach used to build SignalForge.
                         </p>
                     </div>
 
@@ -2515,15 +2514,15 @@
                         <div class="contact-card">
                             <h3>Start a conversation</h3>
                             <p>
-                                Share a brief note about what you’re building or the problem you’re trying to solve.
-                                We’ll get back with thoughts, options and a practical next step.
+                                Share a brief note about what you're building or the problem you're trying to solve.
+                                We'll get back with thoughts, options and a practical next step.
                             </p>
 
                             <div class="contact-meta">
                                 Email:<br>
                                 <a href="mailto:contact@thinkhivelabs.com">contact@thinkhivelabs.com</a>
                                 <br><br>
-                                For SignalForge pilots & partnerships:<br>
+                                For SignalForge pilots &amp; partnerships:<br>
                                 <a href="mailto:signalforge@thinkhivelabs.com">signalforge@thinkhivelabs.com</a>
                             </div>
 
@@ -2543,17 +2542,12 @@
 
     </main>
 
-    <!-- SOCIAL PROOF -->
-    <div class="social-proof">
-        <div class="container">
-            <div class="proof-card reveal" data-reveal>
-                <blockquote data-i18n="testimonial_quote">
-                    "SignalForge unified our scattered data sources into one actionable dashboard. 
-                    We went from days of manual analysis to real-time conviction scores — 
-                    and it was delivered production-ready in just 3 weeks."
-                </blockquote>
-                <cite data-i18n="testimonial_cite">— Early Adopter, FinTech Research Team</cite>
-            </div>
+    <!-- FINAL CTA -->
+    <div class="final-cta-section">
+        <div class="container reveal" data-reveal>
+            <h2>Have an AI product idea? Let’s scope it this week.</h2>
+            <p>Tell us what you're building. We'll reply with a written scope, timeline, and fixed price.</p>
+            <a href="mailto:contact@thinkhivelabs.com" class="btn-primary glow">Start scoping →</a>
         </div>
     </div>
 
@@ -2592,13 +2586,12 @@
 
     <footer>
         <div class="container footer-inner">
-            <div>© <span id="year"></span> ThinkHive Labs. All rights reserved.</div>
+            <div>© 2026 ThinkHive Labs. All rights reserved.</div>
             <div class="footer-links">
-                <a href="#products">Products</a>
+                <a href="#products">Studio</a>
                 <a href="#signalforge">SignalForge</a>
                 <a href="#services">Pricing</a>
-                <a href="#waitlist">Early Access</a>
-                <a href="#contact">Contact</a>
+                                <a href="#contact">Contact</a>
             </div>
         </div>
     </footer>
@@ -2765,7 +2758,7 @@
                 stat_delivery: 'Scope to Production',
                 stat_products: 'Products Shipped',
                 stat_production: 'Production-grade',
-                about_title: 'About ThinkHive Labs',
+                about_title: 'About the Founder',
                 about_subtitle: 'ThinkHive Labs is led by experienced engineering leadership with hands-on product and AI background.',
                 contact_title: 'Start a conversation',
                 contact_desc: "Share a brief note about what you're building or the problem you're trying to solve. We'll get back with thoughts, options and a practical next step.",
