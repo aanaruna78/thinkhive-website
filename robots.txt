@@ -1,0 +1,6 @@
+# ThinkHive Labs - Allow all crawlers
+User-agent: *
+Allow: /
+
+# Sitemap (add when available)
+# Sitemap: https://www.thinkhivelabs.com/sitemap.xml
