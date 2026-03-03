@@ -28,9 +28,9 @@
             --blue: #1a73e8;
             --blue-dark: #0b2c53;
             --green: #3cb879;
-            --bg: #f7f9fc;
-            --text: #1a1a1a;
-            --muted: #6b7280;
+            --bg: #f5f8fc;
+            --text: #0f172a;
+            --muted: #475569;
             --card-bg: #ffffff;
             --border: #e5e7eb;
             --shadow-soft: 0 20px 40px rgba(15, 23, 42, 0.08);
@@ -52,17 +52,26 @@
             background: var(--bg);
             color: var(--text);
             line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
         }
 
         /* Motion primitives */
         .reveal {
-            opacity: 0;
-            transform: translateY(14px);
+            opacity: 1;
+            transform: none;
             transition: opacity 600ms ease, transform 700ms cubic-bezier(.2, .8, .2, 1);
             will-change: opacity, transform;
         }
 
-        .reveal.in-view {
+        .js-enabled .reveal {
+            opacity: 0;
+            transform: translateY(14px);
+        }
+
+        .reveal.in-view,
+        .js-enabled .reveal.in-view {
             opacity: 1;
             transform: translateY(0);
         }
@@ -224,7 +233,7 @@
 
         .hero p.hero-subtitle {
             font-size: 16px;
-            color: var(--muted);
+            color: #334155;
             max-width: 540px;
             margin-bottom: 22px;
         }
@@ -444,7 +453,7 @@
 
         .section-heading p {
             font-size: 14px;
-            color: var(--muted);
+            color: #334155;
             max-width: 560px;
             margin: 0 auto;
         }
@@ -2597,6 +2606,8 @@
     </footer>
 
     <script>
+        document.documentElement.classList.add('js-enabled');
+
         // ===== MOBILE NAV TOGGLE =====
         function toggleNav() {
             const menu = document.getElementById("nav-menu");
