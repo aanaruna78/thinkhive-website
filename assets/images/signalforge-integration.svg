@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 360" role="img" aria-label="SignalForge broker integration illustration">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 360" role="img" aria-label="Synfera broker integration illustration">
   <defs>
     <linearGradient id="sfBg" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#1a73e8" stop-opacity="0.06"/>
@@ -20,13 +20,13 @@
     <animate attributeName="opacity" from="0" to="1" dur="0.4s" fill="freeze" begin="0.3s"/>
   </text>
 
-  <!-- Left: SignalForge Card -->
+  <!-- Left: Synfera Card -->
   <g filter="url(#sfShadow)" opacity="0">
     <animate attributeName="opacity" from="0" to="1" dur="0.5s" fill="freeze" begin="0.4s"/>
     <rect x="80" y="95" width="260" height="190" rx="18" fill="#ffffff" stroke="#e5e7eb" stroke-opacity="0.5"/>
   </g>
   <g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.4s" fill="freeze" begin="0.6s"/>
-    <text x="110" y="128" font-family="Inter,system-ui,sans-serif" font-size="15" font-weight="700" fill="#0b2c53">SignalForge</text>
+    <text x="110" y="128" font-family="Inter,system-ui,sans-serif" font-size="15" font-weight="700" fill="#0b2c53">Synfera</text>
     <rect x="230" y="115" width="55" height="18" rx="9" fill="#e0ebff"/>
     <text x="240" y="128" font-family="Inter,system-ui,sans-serif" font-size="9" font-weight="600" fill="#1a73e8">Engine</text>
 
@@ -77,9 +77,9 @@
   <!-- Integration pipes with animated flow -->
   <g fill="none" stroke-linecap="round" stroke-width="6" opacity="0">
     <animate attributeName="opacity" from="0" to="1" dur="0.5s" fill="freeze" begin="1s"/>
-    <!-- Top pipe: SignalForge → Broker -->
+    <!-- Top pipe: Synfera → Broker -->
     <path d="M342 165 C 400 110, 500 110, 558 165" stroke="url(#sfPipe)" stroke-opacity="0.4"/>
-    <!-- Bottom pipe: Broker → SignalForge -->
+    <!-- Bottom pipe: Broker → Synfera -->
     <path d="M342 215 C 400 270, 500 270, 558 215" stroke="url(#sfPipe)" stroke-opacity="0.4"/>
   </g>
 
